@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (3.2.1)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - GooglePlaces (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - NVActivityIndicatorView (2.9)
+  - SnapKit (0.30.0.beta2)
+  - SwiftCSV (0.3.2)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (= 3.2.1)
+  - GoogleMaps
+  - GooglePlaces
+  - NVActivityIndicatorView
+  - SnapKit (= 0.30.0.beta2)
+  - SwiftCSV (~> 0.3)
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
+  NVActivityIndicatorView: 0084f6be71bdf4735b5424ebfb530b1e3db3276c
+  SnapKit: c4bb32b1d3c5d18ff63bf95ffcbc599d2bab964c
+  SwiftCSV: 8b64b738fc54567d229acb17ce6d584e0dd27560
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 72667bffe61da1d95dd10b37321101a6af1603f7
+
+COCOAPODS: 1.0.1

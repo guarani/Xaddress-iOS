@@ -1,0 +1,843 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2040830AC27EC6A6FA4B6D1E /* Pods_XaddressAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E99A091DFB14B040E06BE4 /* Pods_XaddressAppTests.framework */; };
+		32466E921DB268D1004E0673 /* Xaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E911DB268D1004E0673 /* Xaddress.swift */; };
+		32466E951DB2889D004E0673 /* XCDecodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E941DB2889D004E0673 /* XCDecodeView.swift */; };
+		32466E981DB28A09004E0673 /* XAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E971DB28A09004E0673 /* XAUtils.swift */; };
+		32466E9A1DB28A7A004E0673 /* XACountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E991DB28A7A004E0673 /* XACountry.swift */; };
+		32466E9C1DB28A85004E0673 /* XAState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9B1DB28A85004E0673 /* XAState.swift */; };
+		32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9D1DB28AC2004E0673 /* XAAddress.swift */; };
+		32466EA01DB28B14004E0673 /* XAEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9F1DB28B14004E0673 /* XAEncoder.swift */; };
+		32466EA21DB28B21004E0673 /* XADecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466EA11DB28B21004E0673 /* XADecoder.swift */; };
+		32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466EA51DB29DA2004E0673 /* XAResources.swift */; };
+		3246700F1DB2C8CC004E0673 /* XaddressCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3246700C1DB2C8CC004E0673 /* XaddressCoreData.sqlite */; };
+		324670101DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 3246700D1DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm */; };
+		324670111DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 3246700E1DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal */; };
+		324670131DB2C8F4004E0673 /* XaddressLoader.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 324670121DB2C8F4004E0673 /* XaddressLoader.xcdatamodel */; };
+		3246703D1DB2C9B2004E0673 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670351DB2C9B2004E0673 /* Country+CoreDataProperties.swift */; };
+		3246703E1DB2C9B2004E0673 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670361DB2C9B2004E0673 /* Country.swift */; };
+		3246703F1DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670371DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift */; };
+		324670401DB2C9B2004E0673 /* Adjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670381DB2C9B2004E0673 /* Adjective.swift */; };
+		324670411DB2C9B2004E0673 /* Noun+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670391DB2C9B2004E0673 /* Noun+CoreDataProperties.swift */; };
+		324670421DB2C9B2004E0673 /* Noun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246703A1DB2C9B2004E0673 /* Noun.swift */; };
+		324670431DB2C9B2004E0673 /* State+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246703B1DB2C9B2004E0673 /* State+CoreDataProperties.swift */; };
+		324670441DB2C9B2004E0673 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246703C1DB2C9B2004E0673 /* State.swift */; };
+		3252401D1DA96DD200D12A11 /* adj_en.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3252401B1DA96DD200D12A11 /* adj_en.csv */; };
+		3252401E1DA96DD200D12A11 /* en.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3252401C1DA96DD200D12A11 /* en.csv */; };
+		325240211DA96DE300D12A11 /* countries.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3252401F1DA96DE300D12A11 /* countries.csv */; };
+		325240221DA96DE300D12A11 /* states.csv in Resources */ = {isa = PBXBuildFile; fileRef = 325240201DA96DE300D12A11 /* states.csv */; };
+		325240261DA9B08300D12A11 /* XaddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240231DA9B08200D12A11 /* XaddressView.swift */; };
+		325240271DA9B08300D12A11 /* XaddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325240241DA9B08300D12A11 /* XaddressView.xib */; };
+		325240281DA9B08300D12A11 /* FillDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240251DA9B08300D12A11 /* FillDialogue.swift */; };
+		32DAF6901DA8ABA6003ED378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */; };
+		32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6911DA8ABA6003ED378 /* ViewController.swift */; };
+		32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DAF6931DA8ABA6003ED378 /* Main.storyboard */; };
+		32DAF6971DA8ABA6003ED378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32DAF6961DA8ABA6003ED378 /* Assets.xcassets */; };
+		32DAF69A1DA8ABA6003ED378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DAF6981DA8ABA6003ED378 /* LaunchScreen.storyboard */; };
+		32DAF6A51DA8ABA6003ED378 /* XaddressAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6A41DA8ABA6003ED378 /* XaddressAppTests.swift */; };
+		32DAF6B01DA8ABA6003ED378 /* XaddressAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */; };
+		32EBB9A61DA9CAF80000FA61 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBB9A51DA9CAF80000FA61 /* Constant.swift */; };
+		365C8EA78EF7EE18A242B9ED /* Pods_XaddressApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */; };
+		EE3FFB31B74BF57C7F8F1387 /* Pods_XaddressAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32DAF6A11DA8ABA6003ED378 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32DAF6841DA8ABA6003ED378 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32DAF68B1DA8ABA6003ED378;
+			remoteInfo = XaddressApp;
+		};
+		32DAF6AC1DA8ABA6003ED378 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32DAF6841DA8ABA6003ED378 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32DAF68B1DA8ABA6003ED378;
+			remoteInfo = XaddressApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007A15B249DA30F50557D77B /* Pods-XaddressAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppTests/Pods-XaddressAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		32466E911DB268D1004E0673 /* Xaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xaddress.swift; sourceTree = "<group>"; };
+		32466E941DB2889D004E0673 /* XCDecodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCDecodeView.swift; sourceTree = "<group>"; };
+		32466E971DB28A09004E0673 /* XAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAUtils.swift; sourceTree = "<group>"; };
+		32466E991DB28A7A004E0673 /* XACountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XACountry.swift; sourceTree = "<group>"; };
+		32466E9B1DB28A85004E0673 /* XAState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAState.swift; sourceTree = "<group>"; };
+		32466E9D1DB28AC2004E0673 /* XAAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAAddress.swift; sourceTree = "<group>"; };
+		32466E9F1DB28B14004E0673 /* XAEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAEncoder.swift; sourceTree = "<group>"; };
+		32466EA11DB28B21004E0673 /* XADecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADecoder.swift; sourceTree = "<group>"; };
+		32466EA51DB29DA2004E0673 /* XAResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAResources.swift; sourceTree = "<group>"; };
+		3246700C1DB2C8CC004E0673 /* XaddressCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XaddressCoreData.sqlite; sourceTree = "<group>"; };
+		3246700D1DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XaddressCoreData.sqlite-shm"; sourceTree = "<group>"; };
+		3246700E1DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XaddressCoreData.sqlite-wal"; sourceTree = "<group>"; };
+		324670121DB2C8F4004E0673 /* XaddressLoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XaddressLoader.xcdatamodel; sourceTree = "<group>"; };
+		324670351DB2C9B2004E0673 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		324670361DB2C9B2004E0673 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		324670371DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Adjective+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		324670381DB2C9B2004E0673 /* Adjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adjective.swift; sourceTree = "<group>"; };
+		324670391DB2C9B2004E0673 /* Noun+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Noun+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3246703A1DB2C9B2004E0673 /* Noun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noun.swift; sourceTree = "<group>"; };
+		3246703B1DB2C9B2004E0673 /* State+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "State+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3246703C1DB2C9B2004E0673 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		3252401B1DA96DD200D12A11 /* adj_en.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adj_en.csv; sourceTree = "<group>"; };
+		3252401C1DA96DD200D12A11 /* en.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = en.csv; sourceTree = "<group>"; };
+		3252401F1DA96DE300D12A11 /* countries.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.csv; sourceTree = "<group>"; };
+		325240201DA96DE300D12A11 /* states.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = states.csv; sourceTree = "<group>"; };
+		325240231DA9B08200D12A11 /* XaddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XaddressView.swift; sourceTree = "<group>"; };
+		325240241DA9B08300D12A11 /* XaddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XaddressView.xib; sourceTree = "<group>"; };
+		325240251DA9B08300D12A11 /* FillDialogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillDialogue.swift; sourceTree = "<group>"; };
+		32DAF68C1DA8ABA6003ED378 /* XaddressApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XaddressApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		32DAF6911DA8ABA6003ED378 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32DAF6941DA8ABA6003ED378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32DAF6961DA8ABA6003ED378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32DAF6991DA8ABA6003ED378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		32DAF69B1DA8ABA6003ED378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DAF6A01DA8ABA6003ED378 /* XaddressAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XaddressAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DAF6A41DA8ABA6003ED378 /* XaddressAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XaddressAppTests.swift; sourceTree = "<group>"; };
+		32DAF6A61DA8ABA6003ED378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DAF6AB1DA8ABA6003ED378 /* XaddressAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XaddressAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XaddressAppUITests.swift; sourceTree = "<group>"; };
+		32DAF6B11DA8ABA6003ED378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32EBB9A51DA9CAF80000FA61 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4A9AADC60FE5AC40DEC7B9 /* Pods-XaddressAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppUITests/Pods-XaddressAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9199C08BF551C875FDCB663D /* Pods-XaddressApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressApp/Pods-XaddressApp.release.xcconfig"; sourceTree = "<group>"; };
+		A21F0CB1B6D82587F43CBAC1 /* Pods-XaddressAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppTests/Pods-XaddressAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E0E99A091DFB14B040E06BE4 /* Pods_XaddressAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC868606B327F0F427FB424A /* Pods-XaddressAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppUITests/Pods-XaddressAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FDEAB265609E088046315E8E /* Pods-XaddressApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressApp/Pods-XaddressApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32DAF6891DA8ABA6003ED378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365C8EA78EF7EE18A242B9ED /* Pods_XaddressApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DAF69D1DA8ABA6003ED378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2040830AC27EC6A6FA4B6D1E /* Pods_XaddressAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DAF6A81DA8ABA6003ED378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3FFB31B74BF57C7F8F1387 /* Pods_XaddressAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32466E931DB28881004E0673 /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				32466E941DB2889D004E0673 /* XCDecodeView.swift */,
+			);
+			path = Decode;
+			sourceTree = "<group>";
+		};
+		32466E961DB289F3004E0673 /* Xaddress */ = {
+			isa = PBXGroup;
+			children = (
+				324670341DB2C975004E0673 /* Managed */,
+				32466E971DB28A09004E0673 /* XAUtils.swift */,
+				32466E991DB28A7A004E0673 /* XACountry.swift */,
+				32466E9B1DB28A85004E0673 /* XAState.swift */,
+				32466E9D1DB28AC2004E0673 /* XAAddress.swift */,
+				32466E9F1DB28B14004E0673 /* XAEncoder.swift */,
+				32466EA11DB28B21004E0673 /* XADecoder.swift */,
+				32466EA51DB29DA2004E0673 /* XAResources.swift */,
+				3246700C1DB2C8CC004E0673 /* XaddressCoreData.sqlite */,
+				3246700D1DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm */,
+				3246700E1DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal */,
+				324670121DB2C8F4004E0673 /* XaddressLoader.xcdatamodel */,
+			);
+			path = Xaddress;
+			sourceTree = "<group>";
+		};
+		324670341DB2C975004E0673 /* Managed */ = {
+			isa = PBXGroup;
+			children = (
+				324670351DB2C9B2004E0673 /* Country+CoreDataProperties.swift */,
+				324670361DB2C9B2004E0673 /* Country.swift */,
+				324670371DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift */,
+				324670381DB2C9B2004E0673 /* Adjective.swift */,
+				324670391DB2C9B2004E0673 /* Noun+CoreDataProperties.swift */,
+				3246703A1DB2C9B2004E0673 /* Noun.swift */,
+				3246703B1DB2C9B2004E0673 /* State+CoreDataProperties.swift */,
+				3246703C1DB2C9B2004E0673 /* State.swift */,
+			);
+			path = Managed;
+			sourceTree = "<group>";
+		};
+		325240191DA96DC000D12A11 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3252401F1DA96DE300D12A11 /* countries.csv */,
+				325240201DA96DE300D12A11 /* states.csv */,
+				3252401A1DA96DD200D12A11 /* en */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3252401A1DA96DD200D12A11 /* en */ = {
+			isa = PBXGroup;
+			children = (
+				3252401B1DA96DD200D12A11 /* adj_en.csv */,
+				3252401C1DA96DD200D12A11 /* en.csv */,
+			);
+			path = en;
+			sourceTree = "<group>";
+		};
+		32DAF6831DA8ABA6003ED378 = {
+			isa = PBXGroup;
+			children = (
+				32DAF68E1DA8ABA6003ED378 /* XaddressApp */,
+				32DAF6A31DA8ABA6003ED378 /* XaddressAppTests */,
+				32DAF6AE1DA8ABA6003ED378 /* XaddressAppUITests */,
+				32DAF68D1DA8ABA6003ED378 /* Products */,
+				9E1E85965F71E36A3982C007 /* Pods */,
+				9987A876B456CE472198A083 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		32DAF68D1DA8ABA6003ED378 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32DAF68C1DA8ABA6003ED378 /* XaddressApp.app */,
+				32DAF6A01DA8ABA6003ED378 /* XaddressAppTests.xctest */,
+				32DAF6AB1DA8ABA6003ED378 /* XaddressAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32DAF68E1DA8ABA6003ED378 /* XaddressApp */ = {
+			isa = PBXGroup;
+			children = (
+				325240191DA96DC000D12A11 /* Resources */,
+				32466E931DB28881004E0673 /* Decode */,
+				32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */,
+				32DAF6911DA8ABA6003ED378 /* ViewController.swift */,
+				32DAF6931DA8ABA6003ED378 /* Main.storyboard */,
+				32DAF6961DA8ABA6003ED378 /* Assets.xcassets */,
+				32DAF6981DA8ABA6003ED378 /* LaunchScreen.storyboard */,
+				32DAF69B1DA8ABA6003ED378 /* Info.plist */,
+				325240231DA9B08200D12A11 /* XaddressView.swift */,
+				325240241DA9B08300D12A11 /* XaddressView.xib */,
+				32EBB9A51DA9CAF80000FA61 /* Constant.swift */,
+				325240251DA9B08300D12A11 /* FillDialogue.swift */,
+				32466E911DB268D1004E0673 /* Xaddress.swift */,
+				32466E961DB289F3004E0673 /* Xaddress */,
+			);
+			path = XaddressApp;
+			sourceTree = "<group>";
+		};
+		32DAF6A31DA8ABA6003ED378 /* XaddressAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				32DAF6A41DA8ABA6003ED378 /* XaddressAppTests.swift */,
+				32DAF6A61DA8ABA6003ED378 /* Info.plist */,
+			);
+			path = XaddressAppTests;
+			sourceTree = "<group>";
+		};
+		32DAF6AE1DA8ABA6003ED378 /* XaddressAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */,
+				32DAF6B11DA8ABA6003ED378 /* Info.plist */,
+			);
+			path = XaddressAppUITests;
+			sourceTree = "<group>";
+		};
+		9987A876B456CE472198A083 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */,
+				E0E99A091DFB14B040E06BE4 /* Pods_XaddressAppTests.framework */,
+				4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E1E85965F71E36A3982C007 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDEAB265609E088046315E8E /* Pods-XaddressApp.debug.xcconfig */,
+				9199C08BF551C875FDCB663D /* Pods-XaddressApp.release.xcconfig */,
+				A21F0CB1B6D82587F43CBAC1 /* Pods-XaddressAppTests.debug.xcconfig */,
+				007A15B249DA30F50557D77B /* Pods-XaddressAppTests.release.xcconfig */,
+				8B4A9AADC60FE5AC40DEC7B9 /* Pods-XaddressAppUITests.debug.xcconfig */,
+				EC868606B327F0F427FB424A /* Pods-XaddressAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32DAF68B1DA8ABA6003ED378 /* XaddressApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DAF6B41DA8ABA6003ED378 /* Build configuration list for PBXNativeTarget "XaddressApp" */;
+			buildPhases = (
+				EEE4F8BF6189A24C4E342BBE /* [CP] Check Pods Manifest.lock */,
+				32DAF6881DA8ABA6003ED378 /* Sources */,
+				32DAF6891DA8ABA6003ED378 /* Frameworks */,
+				32DAF68A1DA8ABA6003ED378 /* Resources */,
+				87C364A7D04481BCF96525F1 /* [CP] Embed Pods Frameworks */,
+				D8A7DDC29632B31A770142ED /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XaddressApp;
+			productName = XaddressApp;
+			productReference = 32DAF68C1DA8ABA6003ED378 /* XaddressApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32DAF69F1DA8ABA6003ED378 /* XaddressAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DAF6B71DA8ABA6003ED378 /* Build configuration list for PBXNativeTarget "XaddressAppTests" */;
+			buildPhases = (
+				F7F3CCF958A40115AF69F70E /* [CP] Check Pods Manifest.lock */,
+				32DAF69C1DA8ABA6003ED378 /* Sources */,
+				32DAF69D1DA8ABA6003ED378 /* Frameworks */,
+				32DAF69E1DA8ABA6003ED378 /* Resources */,
+				46B93CBFE6C9488F1DF30DAC /* [CP] Embed Pods Frameworks */,
+				0BFA2A6719AF52C0AF4B9759 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32DAF6A21DA8ABA6003ED378 /* PBXTargetDependency */,
+			);
+			name = XaddressAppTests;
+			productName = XaddressAppTests;
+			productReference = 32DAF6A01DA8ABA6003ED378 /* XaddressAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		32DAF6AA1DA8ABA6003ED378 /* XaddressAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DAF6BA1DA8ABA6003ED378 /* Build configuration list for PBXNativeTarget "XaddressAppUITests" */;
+			buildPhases = (
+				29DE8D3550078E6B9F1B7A56 /* [CP] Check Pods Manifest.lock */,
+				32DAF6A71DA8ABA6003ED378 /* Sources */,
+				32DAF6A81DA8ABA6003ED378 /* Frameworks */,
+				32DAF6A91DA8ABA6003ED378 /* Resources */,
+				7DD45AF47F38232CEE1A1FFD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32DAF6AD1DA8ABA6003ED378 /* PBXTargetDependency */,
+			);
+			name = XaddressAppUITests;
+			productName = XaddressAppUITests;
+			productReference = 32DAF6AB1DA8ABA6003ED378 /* XaddressAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32DAF6841DA8ABA6003ED378 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = LoanApp;
+				TargetAttributes = {
+					32DAF68B1DA8ABA6003ED378 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					32DAF69F1DA8ABA6003ED378 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 32DAF68B1DA8ABA6003ED378;
+					};
+					32DAF6AA1DA8ABA6003ED378 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 32DAF68B1DA8ABA6003ED378;
+					};
+				};
+			};
+			buildConfigurationList = 32DAF6871DA8ABA6003ED378 /* Build configuration list for PBXProject "XaddressApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32DAF6831DA8ABA6003ED378;
+			productRefGroup = 32DAF68D1DA8ABA6003ED378 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32DAF68B1DA8ABA6003ED378 /* XaddressApp */,
+				32DAF69F1DA8ABA6003ED378 /* XaddressAppTests */,
+				32DAF6AA1DA8ABA6003ED378 /* XaddressAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32DAF68A1DA8ABA6003ED378 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3252401E1DA96DD200D12A11 /* en.csv in Resources */,
+				324670101DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm in Resources */,
+				32DAF69A1DA8ABA6003ED378 /* LaunchScreen.storyboard in Resources */,
+				324670111DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal in Resources */,
+				3252401D1DA96DD200D12A11 /* adj_en.csv in Resources */,
+				325240221DA96DE300D12A11 /* states.csv in Resources */,
+				3246700F1DB2C8CC004E0673 /* XaddressCoreData.sqlite in Resources */,
+				325240211DA96DE300D12A11 /* countries.csv in Resources */,
+				32DAF6971DA8ABA6003ED378 /* Assets.xcassets in Resources */,
+				32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */,
+				325240271DA9B08300D12A11 /* XaddressView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DAF69E1DA8ABA6003ED378 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DAF6A91DA8ABA6003ED378 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BFA2A6719AF52C0AF4B9759 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XaddressAppTests/Pods-XaddressAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29DE8D3550078E6B9F1B7A56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		46B93CBFE6C9488F1DF30DAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XaddressAppTests/Pods-XaddressAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DD45AF47F38232CEE1A1FFD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XaddressAppUITests/Pods-XaddressAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87C364A7D04481BCF96525F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XaddressApp/Pods-XaddressApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8A7DDC29632B31A770142ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XaddressApp/Pods-XaddressApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEE4F8BF6189A24C4E342BBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7F3CCF958A40115AF69F70E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32DAF6881DA8ABA6003ED378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */,
+				32466E921DB268D1004E0673 /* Xaddress.swift in Sources */,
+				324670421DB2C9B2004E0673 /* Noun.swift in Sources */,
+				324670401DB2C9B2004E0673 /* Adjective.swift in Sources */,
+				32466E9C1DB28A85004E0673 /* XAState.swift in Sources */,
+				324670131DB2C8F4004E0673 /* XaddressLoader.xcdatamodel in Sources */,
+				3246703D1DB2C9B2004E0673 /* Country+CoreDataProperties.swift in Sources */,
+				32466E981DB28A09004E0673 /* XAUtils.swift in Sources */,
+				325240261DA9B08300D12A11 /* XaddressView.swift in Sources */,
+				324670441DB2C9B2004E0673 /* State.swift in Sources */,
+				3246703F1DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift in Sources */,
+				32EBB9A61DA9CAF80000FA61 /* Constant.swift in Sources */,
+				325240281DA9B08300D12A11 /* FillDialogue.swift in Sources */,
+				3246703E1DB2C9B2004E0673 /* Country.swift in Sources */,
+				32466E9A1DB28A7A004E0673 /* XACountry.swift in Sources */,
+				32466E951DB2889D004E0673 /* XCDecodeView.swift in Sources */,
+				324670431DB2C9B2004E0673 /* State+CoreDataProperties.swift in Sources */,
+				32DAF6901DA8ABA6003ED378 /* AppDelegate.swift in Sources */,
+				324670411DB2C9B2004E0673 /* Noun+CoreDataProperties.swift in Sources */,
+				32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */,
+				32466EA21DB28B21004E0673 /* XADecoder.swift in Sources */,
+				32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */,
+				32466EA01DB28B14004E0673 /* XAEncoder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DAF69C1DA8ABA6003ED378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DAF6A51DA8ABA6003ED378 /* XaddressAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DAF6A71DA8ABA6003ED378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DAF6B01DA8ABA6003ED378 /* XaddressAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32DAF6A21DA8ABA6003ED378 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32DAF68B1DA8ABA6003ED378 /* XaddressApp */;
+			targetProxy = 32DAF6A11DA8ABA6003ED378 /* PBXContainerItemProxy */;
+		};
+		32DAF6AD1DA8ABA6003ED378 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32DAF68B1DA8ABA6003ED378 /* XaddressApp */;
+			targetProxy = 32DAF6AC1DA8ABA6003ED378 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32DAF6931DA8ABA6003ED378 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32DAF6941DA8ABA6003ED378 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		32DAF6981DA8ABA6003ED378 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32DAF6991DA8ABA6003ED378 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32DAF6B21DA8ABA6003ED378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		32DAF6B31DA8ABA6003ED378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32DAF6B51DA8ABA6003ED378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDEAB265609E088046315E8E /* Pods-XaddressApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = XaddressApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		32DAF6B61DA8ABA6003ED378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9199C08BF551C875FDCB663D /* Pods-XaddressApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = XaddressApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		32DAF6B81DA8ABA6003ED378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A21F0CB1B6D82587F43CBAC1 /* Pods-XaddressAppTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = XaddressAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XaddressApp.app/XaddressApp";
+			};
+			name = Debug;
+		};
+		32DAF6B91DA8ABA6003ED378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 007A15B249DA30F50557D77B /* Pods-XaddressAppTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = XaddressAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XaddressApp.app/XaddressApp";
+			};
+			name = Release;
+		};
+		32DAF6BB1DA8ABA6003ED378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B4A9AADC60FE5AC40DEC7B9 /* Pods-XaddressAppUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = XaddressAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = XaddressApp;
+			};
+			name = Debug;
+		};
+		32DAF6BC1DA8ABA6003ED378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC868606B327F0F427FB424A /* Pods-XaddressAppUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = XaddressAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = XaddressApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32DAF6871DA8ABA6003ED378 /* Build configuration list for PBXProject "XaddressApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DAF6B21DA8ABA6003ED378 /* Debug */,
+				32DAF6B31DA8ABA6003ED378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32DAF6B41DA8ABA6003ED378 /* Build configuration list for PBXNativeTarget "XaddressApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DAF6B51DA8ABA6003ED378 /* Debug */,
+				32DAF6B61DA8ABA6003ED378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32DAF6B71DA8ABA6003ED378 /* Build configuration list for PBXNativeTarget "XaddressAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DAF6B81DA8ABA6003ED378 /* Debug */,
+				32DAF6B91DA8ABA6003ED378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32DAF6BA1DA8ABA6003ED378 /* Build configuration list for PBXNativeTarget "XaddressAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DAF6BB1DA8ABA6003ED378 /* Debug */,
+				32DAF6BC1DA8ABA6003ED378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32DAF6841DA8ABA6003ED378 /* Project object */;
+}
