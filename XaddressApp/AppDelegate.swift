@@ -67,18 +67,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("PROJECTNAME.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite")
         
         if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
-            let sourceSqliteURLs = [NSBundle.mainBundle().URLForResource("CoreDataDemo", withExtension: "sqlite")!, NSBundle.mainBundle().URLForResource("CoreDataDemo", withExtension: "sqlite-wal")!, NSBundle.mainBundle().URLForResource("CoreDataDemo", withExtension: "sqlite-shm")!]
+            let sourceSqliteURLs = [
+                NSBundle.mainBundle().URLForResource("XaddressCoreData", withExtension: "sqlite")!,
+                NSBundle.mainBundle().URLForResource("XaddressCoreData", withExtension: "sqlite-wal")!,
+                NSBundle.mainBundle().URLForResource("XaddressCoreData", withExtension: "sqlite-shm")!
+            ]
             
-            let destSqliteURLs = [self.applicationDocumentsDirectory.URLByAppendingPathComponent("CoreDataDemo.sqlite"),
-                                  self.applicationDocumentsDirectory.URLByAppendingPathComponent("CoreDataDemo.sqlite-wal"),
-                                  self.applicationDocumentsDirectory.URLByAppendingPathComponent("CoreDataDemo.sqlite-shm")]
+            let destSqliteURLs = [
+                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite"),
+                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite-wal"),
+                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite-shm")
+            ]
             
             var error:NSError? = nil
-            for var index = 0; index < sourceSqliteURLs.count; index++ {
-                NSFileManager.defaultManager().copyItemAtURL(sourceSqliteURLs[index], toURL: destSqliteURLs[index], error: &error)
+            for i in 0 ..< sourceSqliteURLs.count {
+                try! NSFileManager.defaultManager().copyItemAtURL(sourceSqliteURLs[i], toURL: destSqliteURLs[i])
             }
         }
         

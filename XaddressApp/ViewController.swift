@@ -13,7 +13,6 @@ import GoogleMaps
 import CoreLocation
 import SwiftyJSON
 import SnapKit
-import SwiftCSV
 import GooglePlaces
 
 
@@ -61,13 +60,8 @@ class ViewController: UIViewController {
     var autocompleteResultsViewController: GMSAutocompleteResultsViewController!
     var searchController: UISearchController!
     
-    var countries: CSV!
-    var states: CSV!
-    var words: CSV!
-    var adjectives: CSV!
-    
-    var xaddress: Xaddress?
-    var xaddressView: XaddressView?
+    var address: XAAddress?
+    var addressView: AddressView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,16 +79,6 @@ class ViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.titleView = searchController.searchBar
         definesPresentationContext = true
-
-        // Read the CSV files.
-        do {
-            countries = try CSV(name: NSBundle.mainBundle().pathForResource("countries", ofType: "csv")!)
-            states = try CSV(name: NSBundle.mainBundle().pathForResource("states", ofType: "csv")!)
-            words = try CSV(name: NSBundle.mainBundle().pathForResource("en", ofType: "csv")!)
-            adjectives = try CSV(name: NSBundle.mainBundle().pathForResource("adj_en", ofType: "csv")!)
-        } catch {
-            // Catch
-        }
         
         // Start GPS.
         locationManager = CLLocationManager()
@@ -114,20 +98,19 @@ class ViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[mapView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["mapView": mapView]))
         
-        xaddressTextField = UITextField()
-        xaddressTextField.borderStyle = .RoundedRect
-        xaddressTextField.delegate = self
-        view.addSubview(xaddressTextField)
-        xaddressTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraint(NSLayoutConstraint(item: xaddressTextField, attribute: .Top, relatedBy: .Equal, toItem: mapView, attribute: .Bottom, multiplier: 1, constant: 8))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(8)-[xaddressTextField]-(8)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["xaddressTextField": xaddressTextField]))
-        bottomLayoutConstraint = NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: xaddressTextField, attribute: .Bottom, multiplier: 1, constant: 8)
-        view.addConstraint(bottomLayoutConstraint)
-        xaddressTextField.placeholder = "Enter an Xaddress to find its location"
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidChangeFrame), name: UIKeyboardDidChangeFrameNotification, object: nil)
+        
+        let decodeViewController = DecodeChildViewController()
+        addChildViewController(decodeViewController)
+        let decodeView = decodeViewController.view
+        decodeView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(decodeView)
+        view.addConstraint(NSLayoutConstraint(item: decodeView, attribute: .Top, relatedBy: .Equal, toItem: mapView, attribute: .Bottom, multiplier: 1, constant: 0))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[decodeView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["decodeView": decodeView]))
+        bottomLayoutConstraint = NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: decodeView, attribute: .Bottom, multiplier: 1, constant: 0)
+        view.addConstraint(bottomLayoutConstraint)
+        decodeViewController.didMoveToParentViewController(self)
         
     }
     
@@ -136,10 +119,6 @@ class ViewController: UIViewController {
     }
     
     // #MARK: - Keyboard Handlers
-    
-    func keyboardDidChangeFrame(notification: NSNotification) {
-        
-    }
     
     func keyboardWillShow(notification: NSNotification) {
         
@@ -154,7 +133,7 @@ class ViewController: UIViewController {
         if let keyboardHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height,
             duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
             
-            bottomLayoutConstraint.constant = keyboardHeight + 8
+            bottomLayoutConstraint.constant = keyboardHeight
             UIView.animateWithDuration(duration, animations: {
                 self.view.layoutIfNeeded()
             })
@@ -167,6 +146,12 @@ class ViewController: UIViewController {
         }
     }
     
+    // #MARK: - Decode View
+    
+    func showCountryPicker() {
+        
+    }
+    
     func closeXaddressTextField(duration: Double = 0) {
         bottomLayoutConstraint.constant = 8
         UIView.animateWithDuration(duration, animations: {
@@ -177,8 +162,8 @@ class ViewController: UIViewController {
     func parseXaddressComponents(string: String) {
         
         guard let xaddress = string.xa_address() else { return }
-
-        let combinationTable = xaddress.p1Encoded
+        print(xaddress)
+        
         
     }
     
@@ -199,24 +184,24 @@ class ViewController: UIViewController {
         
         fetchStateAndCountry({ country, state in
             
-            self.boundsForPlace(country, state: state, onSuccess: { bounds in
-                
-                let table = self.combinationTable(bounds!)
-                print(table)
-                
-                self.xaddressForLocation(coordinate, combinationTable: table, onSuccess: { xaddress in
-                    print(xaddress)
-                    xaddress.country = country
-                    xaddress.state = state
-                    self.xaddress = xaddress
-                    
-                    self.xaddressView?.setupWithXaddress(xaddress)
-                })
-            })
+//            self.boundsForPlace(country, state: state, onSuccess: { bounds in
+//                
+//                let table = self.combinationTable(bounds!)
+//                print(table)
+//                
+//                self.xaddressForLocation(coordinate, combinationTable: table, onSuccess: { xaddress in
+//                    print(xaddress)
+//                    xaddress.country = country
+//                    xaddress.state = state
+//                    self.xaddress = xaddress
+//                    
+//                    self.xaddressView?.setupWithXaddress(xaddress)
+//                })
+//            })
         })
     }
-    
-    func fetchStateAndCountry(onSuccess: ((country: Country?, state: State?) -> Void)) {
+
+    func fetchStateAndCountry(onSuccess: ((country: XACountry?, state: XAState?) -> Void)) {
         
         guard let lat = self.userLocation?.coordinate.latitude, lon = self.userLocation?.coordinate.longitude else {
             onSuccess(country: nil, state: nil)
@@ -230,8 +215,8 @@ class ViewController: UIViewController {
             
             if let data = response.data {
                 let json = JSON(data: data)
-                var country: Country?
-                var state: State?
+                var country: XACountry?
+                var state: XAState?
                 if let addressComponents = json["results"][0]["address_components"].array {
                     let stateInfo = addressComponents.filter { component in
                         let isState = component["types"].array?.filter { type in
@@ -249,8 +234,8 @@ class ViewController: UIViewController {
                         return isCountry
                     }.first
                     
-                    state = State(shortName: stateInfo?["short_name"].string, longName: stateInfo?["long_name"].string)
-                    country = Country(shortName: countryInfo?["short_name"].string, longName: countryInfo?["long_name"].string)
+//                    state = State(shortName: stateInfo?["short_name"].string, longName: stateInfo?["long_name"].string)
+//                    country = Country(shortName: countryInfo?["short_name"].string, longName: countryInfo?["long_name"].string)
                 }
                 
                 onSuccess(country: country, state: state)
@@ -266,9 +251,9 @@ extension ViewController: GMSMapViewDelegate {
         // ALlow animations in the info window.
         marker.tracksInfoWindowChanges = true
         
-        self.xaddressView = UINib(nibName: "XaddressView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? XaddressView
-        self.xaddressView?.startLoading()
-        return xaddressView
+        addressView = UINib(nibName: "AddressView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? AddressView
+        self.addressView?.startLoading()
+        return addressView
     }
     
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
@@ -285,7 +270,7 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("didFailWithError \(error.localizedDescription)")
-        UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+//        UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -331,23 +316,6 @@ extension ViewController: GMSAutocompleteResultsViewControllerDelegate {
     
     func didUpdateAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-    }
-}
-
-extension ViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if textField == xaddressTextField {
-            closeXaddressTextField()
-            if let text = textField.text {
-                parseXaddressComponents(text)
-            }
-        }
     }
 }
 

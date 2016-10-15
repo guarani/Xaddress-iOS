@@ -15,12 +15,12 @@ typealias XACombinationTable = [XACombinationTableElement]
 
 extension String {
     
-    func xa_address() -> Xaddress? {
+    func xa_address() -> XAAddress? {
         
         let str = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) as NSString
         guard str.length > 0 else { return nil }
         
-        let address = Xaddress()
+        let address = XAAddress()
         
         do {
             let regex = try NSRegularExpression(pattern: "(\\w*)\\s*(\\w*)\\s*(\\w*)", options: NSRegularExpressionOptions(rawValue: 0))

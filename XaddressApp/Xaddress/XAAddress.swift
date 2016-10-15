@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Xaddress: CustomStringConvertible {
+class XAAddress: CustomStringConvertible {
     var n: Int?
     var p1: String?
     var p2: String?
