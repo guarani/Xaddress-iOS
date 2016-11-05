@@ -8,34 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2040830AC27EC6A6FA4B6D1E /* Pods_XaddressAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E99A091DFB14B040E06BE4 /* Pods_XaddressAppTests.framework */; };
-		32466E921DB268D1004E0673 /* Xaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E911DB268D1004E0673 /* Xaddress.swift */; };
-		32466E951DB2889D004E0673 /* XCDecodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E941DB2889D004E0673 /* XCDecodeView.swift */; };
+		32271D8D1DB6F6E900F80A45 /* XAAdjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D851DB6F6E900F80A45 /* XAAdjective.swift */; };
+		32271D8E1DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D861DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift */; };
+		32271D8F1DB6F6E900F80A45 /* XACountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D871DB6F6E900F80A45 /* XACountry.swift */; };
+		32271D901DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D881DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift */; };
+		32271D911DB6F6E900F80A45 /* XANoun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D891DB6F6E900F80A45 /* XANoun.swift */; };
+		32271D921DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D8A1DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift */; };
+		32271D931DB6F6E900F80A45 /* XAState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D8B1DB6F6E900F80A45 /* XAState.swift */; };
+		32271D941DB6F6E900F80A45 /* XAState+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D8C1DB6F6E900F80A45 /* XAState+CoreDataProperties.swift */; };
+		32271D961DB7015E00F80A45 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32271D951DB7015E00F80A45 /* Media.xcassets */; };
 		32466E981DB28A09004E0673 /* XAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E971DB28A09004E0673 /* XAUtils.swift */; };
-		32466E9A1DB28A7A004E0673 /* XACountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E991DB28A7A004E0673 /* XACountry.swift */; };
-		32466E9C1DB28A85004E0673 /* XAState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9B1DB28A85004E0673 /* XAState.swift */; };
 		32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9D1DB28AC2004E0673 /* XAAddress.swift */; };
-		32466EA01DB28B14004E0673 /* XAEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9F1DB28B14004E0673 /* XAEncoder.swift */; };
-		32466EA21DB28B21004E0673 /* XADecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466EA11DB28B21004E0673 /* XADecoder.swift */; };
 		32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466EA51DB29DA2004E0673 /* XAResources.swift */; };
-		3246700F1DB2C8CC004E0673 /* XaddressCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3246700C1DB2C8CC004E0673 /* XaddressCoreData.sqlite */; };
-		324670101DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 3246700D1DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm */; };
-		324670111DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 3246700E1DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal */; };
-		324670131DB2C8F4004E0673 /* XaddressLoader.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 324670121DB2C8F4004E0673 /* XaddressLoader.xcdatamodel */; };
-		3246703D1DB2C9B2004E0673 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670351DB2C9B2004E0673 /* Country+CoreDataProperties.swift */; };
-		3246703E1DB2C9B2004E0673 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670361DB2C9B2004E0673 /* Country.swift */; };
-		3246703F1DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670371DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift */; };
-		324670401DB2C9B2004E0673 /* Adjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670381DB2C9B2004E0673 /* Adjective.swift */; };
-		324670411DB2C9B2004E0673 /* Noun+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324670391DB2C9B2004E0673 /* Noun+CoreDataProperties.swift */; };
-		324670421DB2C9B2004E0673 /* Noun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246703A1DB2C9B2004E0673 /* Noun.swift */; };
-		324670431DB2C9B2004E0673 /* State+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246703B1DB2C9B2004E0673 /* State+CoreDataProperties.swift */; };
-		324670441DB2C9B2004E0673 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246703C1DB2C9B2004E0673 /* State.swift */; };
-		3252401D1DA96DD200D12A11 /* adj_en.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3252401B1DA96DD200D12A11 /* adj_en.csv */; };
-		3252401E1DA96DD200D12A11 /* en.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3252401C1DA96DD200D12A11 /* en.csv */; };
-		325240211DA96DE300D12A11 /* countries.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3252401F1DA96DE300D12A11 /* countries.csv */; };
-		325240221DA96DE300D12A11 /* states.csv in Resources */ = {isa = PBXBuildFile; fileRef = 325240201DA96DE300D12A11 /* states.csv */; };
-		325240261DA9B08300D12A11 /* XaddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240231DA9B08200D12A11 /* XaddressView.swift */; };
-		325240271DA9B08300D12A11 /* XaddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325240241DA9B08300D12A11 /* XaddressView.xib */; };
+		324670951DB2D2C0004E0673 /* XALoader.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 324670911DB2D2C0004E0673 /* XALoader.xcdatamodel */; };
+		3246709B1DB2D4C6004E0673 /* DecodeChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246709A1DB2D4C6004E0673 /* DecodeChildViewController.swift */; };
+		325240261DA9B08300D12A11 /* EncodedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240231DA9B08200D12A11 /* EncodedView.swift */; };
+		325240271DA9B08300D12A11 /* EncodedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325240241DA9B08300D12A11 /* EncodedView.xib */; };
 		325240281DA9B08300D12A11 /* FillDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240251DA9B08300D12A11 /* FillDialogue.swift */; };
+		3298179E1DC51483009B0B49 /* XALoader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3298179B1DC51483009B0B49 /* XALoader.sqlite */; };
+		3298179F1DC51483009B0B49 /* XALoader.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 3298179C1DC51483009B0B49 /* XALoader.sqlite-shm */; };
+		329817A01DC51483009B0B49 /* XALoader.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 3298179D1DC51483009B0B49 /* XALoader.sqlite-wal */; };
 		32DAF6901DA8ABA6003ED378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */; };
 		32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6911DA8ABA6003ED378 /* ViewController.swift */; };
 		32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DAF6931DA8ABA6003ED378 /* Main.storyboard */; };
@@ -44,6 +36,8 @@
 		32DAF6A51DA8ABA6003ED378 /* XaddressAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6A41DA8ABA6003ED378 /* XaddressAppTests.swift */; };
 		32DAF6B01DA8ABA6003ED378 /* XaddressAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */; };
 		32EBB9A61DA9CAF80000FA61 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBB9A51DA9CAF80000FA61 /* Constant.swift */; };
+		32EE8A6C1DCE9D880011FE0E /* DecodedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE8A6B1DCE9D880011FE0E /* DecodedView.swift */; };
+		32EE8A6E1DCE9D940011FE0E /* DecodedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EE8A6D1DCE9D940011FE0E /* DecodedView.xib */; };
 		365C8EA78EF7EE18A242B9ED /* Pods_XaddressApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */; };
 		EE3FFB31B74BF57C7F8F1387 /* Pods_XaddressAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -67,34 +61,26 @@
 
 /* Begin PBXFileReference section */
 		007A15B249DA30F50557D77B /* Pods-XaddressAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppTests/Pods-XaddressAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		32466E911DB268D1004E0673 /* Xaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xaddress.swift; sourceTree = "<group>"; };
-		32466E941DB2889D004E0673 /* XCDecodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCDecodeView.swift; sourceTree = "<group>"; };
+		32271D851DB6F6E900F80A45 /* XAAdjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAAdjective.swift; sourceTree = "<group>"; };
+		32271D861DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XAAdjective+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32271D871DB6F6E900F80A45 /* XACountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XACountry.swift; sourceTree = "<group>"; };
+		32271D881DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XACountry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32271D891DB6F6E900F80A45 /* XANoun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XANoun.swift; sourceTree = "<group>"; };
+		32271D8A1DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XANoun+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32271D8B1DB6F6E900F80A45 /* XAState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAState.swift; sourceTree = "<group>"; };
+		32271D8C1DB6F6E900F80A45 /* XAState+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XAState+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32271D951DB7015E00F80A45 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		32466E971DB28A09004E0673 /* XAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAUtils.swift; sourceTree = "<group>"; };
-		32466E991DB28A7A004E0673 /* XACountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XACountry.swift; sourceTree = "<group>"; };
-		32466E9B1DB28A85004E0673 /* XAState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAState.swift; sourceTree = "<group>"; };
 		32466E9D1DB28AC2004E0673 /* XAAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAAddress.swift; sourceTree = "<group>"; };
-		32466E9F1DB28B14004E0673 /* XAEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAEncoder.swift; sourceTree = "<group>"; };
-		32466EA11DB28B21004E0673 /* XADecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADecoder.swift; sourceTree = "<group>"; };
 		32466EA51DB29DA2004E0673 /* XAResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAResources.swift; sourceTree = "<group>"; };
-		3246700C1DB2C8CC004E0673 /* XaddressCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XaddressCoreData.sqlite; sourceTree = "<group>"; };
-		3246700D1DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XaddressCoreData.sqlite-shm"; sourceTree = "<group>"; };
-		3246700E1DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XaddressCoreData.sqlite-wal"; sourceTree = "<group>"; };
-		324670121DB2C8F4004E0673 /* XaddressLoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XaddressLoader.xcdatamodel; sourceTree = "<group>"; };
-		324670351DB2C9B2004E0673 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		324670361DB2C9B2004E0673 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		324670371DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Adjective+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		324670381DB2C9B2004E0673 /* Adjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adjective.swift; sourceTree = "<group>"; };
-		324670391DB2C9B2004E0673 /* Noun+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Noun+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3246703A1DB2C9B2004E0673 /* Noun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noun.swift; sourceTree = "<group>"; };
-		3246703B1DB2C9B2004E0673 /* State+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "State+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3246703C1DB2C9B2004E0673 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		3252401B1DA96DD200D12A11 /* adj_en.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adj_en.csv; sourceTree = "<group>"; };
-		3252401C1DA96DD200D12A11 /* en.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = en.csv; sourceTree = "<group>"; };
-		3252401F1DA96DE300D12A11 /* countries.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.csv; sourceTree = "<group>"; };
-		325240201DA96DE300D12A11 /* states.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = states.csv; sourceTree = "<group>"; };
-		325240231DA9B08200D12A11 /* XaddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XaddressView.swift; sourceTree = "<group>"; };
-		325240241DA9B08300D12A11 /* XaddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XaddressView.xib; sourceTree = "<group>"; };
+		324670911DB2D2C0004E0673 /* XALoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XALoader.xcdatamodel; sourceTree = "<group>"; };
+		3246709A1DB2D4C6004E0673 /* DecodeChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeChildViewController.swift; sourceTree = "<group>"; };
+		325240231DA9B08200D12A11 /* EncodedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodedView.swift; sourceTree = "<group>"; };
+		325240241DA9B08300D12A11 /* EncodedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncodedView.xib; sourceTree = "<group>"; };
 		325240251DA9B08300D12A11 /* FillDialogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillDialogue.swift; sourceTree = "<group>"; };
+		3298179B1DC51483009B0B49 /* XALoader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XALoader.sqlite; sourceTree = "<group>"; };
+		3298179C1DC51483009B0B49 /* XALoader.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XALoader.sqlite-shm"; sourceTree = "<group>"; };
+		3298179D1DC51483009B0B49 /* XALoader.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XALoader.sqlite-wal"; sourceTree = "<group>"; };
 		32DAF68C1DA8ABA6003ED378 /* XaddressApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XaddressApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32DAF6911DA8ABA6003ED378 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +95,8 @@
 		32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XaddressAppUITests.swift; sourceTree = "<group>"; };
 		32DAF6B11DA8ABA6003ED378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32EBB9A51DA9CAF80000FA61 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		32EE8A6B1DCE9D880011FE0E /* DecodedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodedView.swift; sourceTree = "<group>"; };
+		32EE8A6D1DCE9D940011FE0E /* DecodedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecodedView.xib; sourceTree = "<group>"; };
 		4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4A9AADC60FE5AC40DEC7B9 /* Pods-XaddressAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppUITests/Pods-XaddressAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,29 +135,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32466E931DB28881004E0673 /* Decode */ = {
-			isa = PBXGroup;
-			children = (
-				32466E941DB2889D004E0673 /* XCDecodeView.swift */,
-			);
-			path = Decode;
-			sourceTree = "<group>";
-		};
 		32466E961DB289F3004E0673 /* Xaddress */ = {
 			isa = PBXGroup;
 			children = (
+				324670911DB2D2C0004E0673 /* XALoader.xcdatamodel */,
+				3298179B1DC51483009B0B49 /* XALoader.sqlite */,
+				3298179C1DC51483009B0B49 /* XALoader.sqlite-shm */,
+				3298179D1DC51483009B0B49 /* XALoader.sqlite-wal */,
 				324670341DB2C975004E0673 /* Managed */,
 				32466E971DB28A09004E0673 /* XAUtils.swift */,
-				32466E991DB28A7A004E0673 /* XACountry.swift */,
-				32466E9B1DB28A85004E0673 /* XAState.swift */,
 				32466E9D1DB28AC2004E0673 /* XAAddress.swift */,
-				32466E9F1DB28B14004E0673 /* XAEncoder.swift */,
-				32466EA11DB28B21004E0673 /* XADecoder.swift */,
 				32466EA51DB29DA2004E0673 /* XAResources.swift */,
-				3246700C1DB2C8CC004E0673 /* XaddressCoreData.sqlite */,
-				3246700D1DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm */,
-				3246700E1DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal */,
-				324670121DB2C8F4004E0673 /* XaddressLoader.xcdatamodel */,
 			);
 			path = Xaddress;
 			sourceTree = "<group>";
@@ -177,35 +153,16 @@
 		324670341DB2C975004E0673 /* Managed */ = {
 			isa = PBXGroup;
 			children = (
-				324670351DB2C9B2004E0673 /* Country+CoreDataProperties.swift */,
-				324670361DB2C9B2004E0673 /* Country.swift */,
-				324670371DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift */,
-				324670381DB2C9B2004E0673 /* Adjective.swift */,
-				324670391DB2C9B2004E0673 /* Noun+CoreDataProperties.swift */,
-				3246703A1DB2C9B2004E0673 /* Noun.swift */,
-				3246703B1DB2C9B2004E0673 /* State+CoreDataProperties.swift */,
-				3246703C1DB2C9B2004E0673 /* State.swift */,
+				32271D851DB6F6E900F80A45 /* XAAdjective.swift */,
+				32271D861DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift */,
+				32271D871DB6F6E900F80A45 /* XACountry.swift */,
+				32271D881DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift */,
+				32271D891DB6F6E900F80A45 /* XANoun.swift */,
+				32271D8A1DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift */,
+				32271D8B1DB6F6E900F80A45 /* XAState.swift */,
+				32271D8C1DB6F6E900F80A45 /* XAState+CoreDataProperties.swift */,
 			);
 			path = Managed;
-			sourceTree = "<group>";
-		};
-		325240191DA96DC000D12A11 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3252401F1DA96DE300D12A11 /* countries.csv */,
-				325240201DA96DE300D12A11 /* states.csv */,
-				3252401A1DA96DD200D12A11 /* en */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		3252401A1DA96DD200D12A11 /* en */ = {
-			isa = PBXGroup;
-			children = (
-				3252401B1DA96DD200D12A11 /* adj_en.csv */,
-				3252401C1DA96DD200D12A11 /* en.csv */,
-			);
-			path = en;
 			sourceTree = "<group>";
 		};
 		32DAF6831DA8ABA6003ED378 = {
@@ -233,19 +190,17 @@
 		32DAF68E1DA8ABA6003ED378 /* XaddressApp */ = {
 			isa = PBXGroup;
 			children = (
-				325240191DA96DC000D12A11 /* Resources */,
-				32466E931DB28881004E0673 /* Decode */,
 				32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */,
 				32DAF6911DA8ABA6003ED378 /* ViewController.swift */,
+				3246709A1DB2D4C6004E0673 /* DecodeChildViewController.swift */,
 				32DAF6931DA8ABA6003ED378 /* Main.storyboard */,
 				32DAF6961DA8ABA6003ED378 /* Assets.xcassets */,
+				32271D951DB7015E00F80A45 /* Media.xcassets */,
 				32DAF6981DA8ABA6003ED378 /* LaunchScreen.storyboard */,
 				32DAF69B1DA8ABA6003ED378 /* Info.plist */,
-				325240231DA9B08200D12A11 /* XaddressView.swift */,
-				325240241DA9B08300D12A11 /* XaddressView.xib */,
+				32EE8A6F1DCE9E340011FE0E /* Views */,
 				32EBB9A51DA9CAF80000FA61 /* Constant.swift */,
 				325240251DA9B08300D12A11 /* FillDialogue.swift */,
-				32466E911DB268D1004E0673 /* Xaddress.swift */,
 				32466E961DB289F3004E0673 /* Xaddress */,
 			);
 			path = XaddressApp;
@@ -267,6 +222,17 @@
 				32DAF6B11DA8ABA6003ED378 /* Info.plist */,
 			);
 			path = XaddressAppUITests;
+			sourceTree = "<group>";
+		};
+		32EE8A6F1DCE9E340011FE0E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				325240231DA9B08200D12A11 /* EncodedView.swift */,
+				325240241DA9B08300D12A11 /* EncodedView.xib */,
+				32EE8A6B1DCE9D880011FE0E /* DecodedView.swift */,
+				32EE8A6D1DCE9D940011FE0E /* DecodedView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9987A876B456CE472198A083 /* Frameworks */ = {
@@ -404,17 +370,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3252401E1DA96DD200D12A11 /* en.csv in Resources */,
-				324670101DB2C8CC004E0673 /* XaddressCoreData.sqlite-shm in Resources */,
 				32DAF69A1DA8ABA6003ED378 /* LaunchScreen.storyboard in Resources */,
-				324670111DB2C8CC004E0673 /* XaddressCoreData.sqlite-wal in Resources */,
-				3252401D1DA96DD200D12A11 /* adj_en.csv in Resources */,
-				325240221DA96DE300D12A11 /* states.csv in Resources */,
-				3246700F1DB2C8CC004E0673 /* XaddressCoreData.sqlite in Resources */,
-				325240211DA96DE300D12A11 /* countries.csv in Resources */,
+				3298179F1DC51483009B0B49 /* XALoader.sqlite-shm in Resources */,
 				32DAF6971DA8ABA6003ED378 /* Assets.xcassets in Resources */,
+				32271D961DB7015E00F80A45 /* Media.xcassets in Resources */,
+				329817A01DC51483009B0B49 /* XALoader.sqlite-wal in Resources */,
+				32EE8A6E1DCE9D940011FE0E /* DecodedView.xib in Resources */,
 				32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */,
-				325240271DA9B08300D12A11 /* XaddressView.xib in Resources */,
+				325240271DA9B08300D12A11 /* EncodedView.xib in Resources */,
+				3298179E1DC51483009B0B49 /* XALoader.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,29 +526,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32271D911DB6F6E900F80A45 /* XANoun.swift in Sources */,
 				32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */,
-				32466E921DB268D1004E0673 /* Xaddress.swift in Sources */,
-				324670421DB2C9B2004E0673 /* Noun.swift in Sources */,
-				324670401DB2C9B2004E0673 /* Adjective.swift in Sources */,
-				32466E9C1DB28A85004E0673 /* XAState.swift in Sources */,
-				324670131DB2C8F4004E0673 /* XaddressLoader.xcdatamodel in Sources */,
-				3246703D1DB2C9B2004E0673 /* Country+CoreDataProperties.swift in Sources */,
+				324670951DB2D2C0004E0673 /* XALoader.xcdatamodel in Sources */,
+				32271D8D1DB6F6E900F80A45 /* XAAdjective.swift in Sources */,
 				32466E981DB28A09004E0673 /* XAUtils.swift in Sources */,
-				325240261DA9B08300D12A11 /* XaddressView.swift in Sources */,
-				324670441DB2C9B2004E0673 /* State.swift in Sources */,
-				3246703F1DB2C9B2004E0673 /* Adjective+CoreDataProperties.swift in Sources */,
+				325240261DA9B08300D12A11 /* EncodedView.swift in Sources */,
+				32271D941DB6F6E900F80A45 /* XAState+CoreDataProperties.swift in Sources */,
 				32EBB9A61DA9CAF80000FA61 /* Constant.swift in Sources */,
 				325240281DA9B08300D12A11 /* FillDialogue.swift in Sources */,
-				3246703E1DB2C9B2004E0673 /* Country.swift in Sources */,
-				32466E9A1DB28A7A004E0673 /* XACountry.swift in Sources */,
-				32466E951DB2889D004E0673 /* XCDecodeView.swift in Sources */,
-				324670431DB2C9B2004E0673 /* State+CoreDataProperties.swift in Sources */,
+				32271D921DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift in Sources */,
 				32DAF6901DA8ABA6003ED378 /* AppDelegate.swift in Sources */,
-				324670411DB2C9B2004E0673 /* Noun+CoreDataProperties.swift in Sources */,
+				32EE8A6C1DCE9D880011FE0E /* DecodedView.swift in Sources */,
+				3246709B1DB2D4C6004E0673 /* DecodeChildViewController.swift in Sources */,
 				32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */,
-				32466EA21DB28B21004E0673 /* XADecoder.swift in Sources */,
 				32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */,
-				32466EA01DB28B14004E0673 /* XAEncoder.swift in Sources */,
+				32271D8F1DB6F6E900F80A45 /* XACountry.swift in Sources */,
+				32271D931DB6F6E900F80A45 /* XAState.swift in Sources */,
+				32271D8E1DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift in Sources */,
+				32271D901DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -745,6 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

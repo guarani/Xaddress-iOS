@@ -16,9 +16,6 @@ import SnapKit
 import GooglePlaces
 
 
-
-
-
 class Bounds: CustomStringConvertible {
     
     // e.g. -9.9300701@153.5518096*-29.1785876@137.9945748
@@ -60,8 +57,10 @@ class ViewController: UIViewController {
     var autocompleteResultsViewController: GMSAutocompleteResultsViewController!
     var searchController: UISearchController!
     
-    var address: XAAddress?
-    var addressView: AddressView?
+//    var address: XAAddress?
+    
+    let decodeViewController = DecodeChildViewController()
+//    var addressView: AddressView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +100,7 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
-        let decodeViewController = DecodeChildViewController()
+        decodeViewController.mapViewController = self
         addChildViewController(decodeViewController)
         let decodeView = decodeViewController.view
         decodeView.translatesAutoresizingMaskIntoConstraints = false
@@ -134,6 +133,7 @@ class ViewController: UIViewController {
             duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
             
             bottomLayoutConstraint.constant = keyboardHeight
+//            decodeViewController.open()
             UIView.animateWithDuration(duration, animations: {
                 self.view.layoutIfNeeded()
             })
@@ -153,18 +153,15 @@ class ViewController: UIViewController {
     }
     
     func closeXaddressTextField(duration: Double = 0) {
-        bottomLayoutConstraint.constant = 8
+        bottomLayoutConstraint.constant = 0
+//        decodeViewController.close()
         UIView.animateWithDuration(duration, animations: {
             self.view.layoutIfNeeded()
+        }, completion: { _ in
+            if self.decodeViewController.decodingState == .Result {
+                self.hideDecoder()
+            }
         })
-    }
-    
-    func parseXaddressComponents(string: String) {
-        
-        guard let xaddress = string.xa_address() else { return }
-        print(xaddress)
-        
-        
     }
     
     func showMarkerAtCoordinate(coordinate: CLLocationCoordinate2D) {
@@ -242,19 +239,37 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func showPlace(locationCoordinate: CLLocationCoordinate2D) {
+        let cameraUpdate = GMSCameraUpdate.setTarget(locationCoordinate, zoom: 10)
+        mapView.animateWithCameraUpdate(cameraUpdate)
+        showMarkerAtCoordinate(locationCoordinate)
+    }
+    
+    func hideDecoder() {
+        
+        decodeViewController.view.setNeedsLayout()
+        decodeViewController.view.layoutIfNeeded()
+        
+        self.bottomLayoutConstraint.constant = -decodeViewController.view.frame.height
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
 
 }
 
 extension ViewController: GMSMapViewDelegate {
-    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        
-        // ALlow animations in the info window.
-        marker.tracksInfoWindowChanges = true
-        
-        addressView = UINib(nibName: "AddressView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? AddressView
-        self.addressView?.startLoading()
-        return addressView
-    }
+//    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+//        
+//        // ALlow animations in the info window.
+//        marker.tracksInfoWindowChanges = true
+//        
+//        addressView = UINib(nibName: "AddressView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? AddressView
+//        self.addressView?.startLoading()
+//        return addressView
+//    }
     
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
         encodePlaceAtCoordinate(coordinate)

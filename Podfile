@@ -10,9 +10,10 @@ target 'XaddressApp' do
   pod 'SnapKit', '0.30.0.beta2'
   pod 'Alamofire', '3.2.1'
   pod 'SwiftyJSON'
-  pod 'SwiftCSV', '~> 0.3'
   pod 'NVActivityIndicatorView'
   pod 'GooglePlaces'
+  pod 'UITextField+Shake', '~> 1.1'
+  pod 'LTMorphingLabel'
 
   target 'XaddressAppTests' do
     inherit! :search_paths

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LTMorphingLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,12 +39,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftCSV.xcscheme</key>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
+		<key>UITextField+Shake.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,12 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C9584F51A7200807EEFD23CF19B9E49</key>
+		<key>1C01D56B5A0838F68AE0604436012343</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31398A7F3B64A137366A012AF10650E9</key>
+		<key>3C900E8E2449EBBCC12128A9BDA69E7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,22 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7FAAB289C25F95FE9922D198BF3D9C37</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8698C4558AE758AD92477EC134E714F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>86CDBDAA53C39DFA0CE7CAE7930A28DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B83B282E964CAD388F4B403281B8DD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>981EE306129D4560A1EE312A10668F64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C2E306233E72724E00BBFC730A5B6639</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E19161B03E2ED3132C78B9364C61BE80</key>
 		<dict>
 			<key>primary</key>
 			<true/>

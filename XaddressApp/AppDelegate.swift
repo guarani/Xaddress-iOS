@@ -52,14 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "uk.co.plymouthsoftware.core_data" in the application's documents Application Support directory.
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1]
+        // The directory the application uses to store the Core Data store file.
+        return NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last!
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("DATAMODELNAME", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("XALoader", withExtension: "mom")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     
@@ -67,19 +66,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite")
         
         if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
             let sourceSqliteURLs = [
-                NSBundle.mainBundle().URLForResource("XaddressCoreData", withExtension: "sqlite")!,
-                NSBundle.mainBundle().URLForResource("XaddressCoreData", withExtension: "sqlite-wal")!,
-                NSBundle.mainBundle().URLForResource("XaddressCoreData", withExtension: "sqlite-shm")!
+                NSBundle.mainBundle().URLForResource("XALoader", withExtension: "sqlite")!,
+                NSBundle.mainBundle().URLForResource("XALoader", withExtension: "sqlite-wal")!,
+                NSBundle.mainBundle().URLForResource("XALoader", withExtension: "sqlite-shm")!
             ]
             
             let destSqliteURLs = [
-                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite"),
-                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite-wal"),
-                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XaddressCoreData.sqlite-shm")
+                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite"),
+                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite-wal"),
+                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite-shm")
             ]
             
             var error:NSError? = nil

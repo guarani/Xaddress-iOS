@@ -8,24 +8,14 @@
 
 import UIKit
 
-class XAAddress: CustomStringConvertible {
-    var n: Int?
-    var p1: String?
-    var p2: String?
-    var word1List = [[String: String]]()
-    var word2List = [[String: String]]()
+class XAAddressComponents: CustomStringConvertible {
+    var number: Int?
+    var word1: String?
+    var word2: String?
     var country: XACountry?
     var state: XAState?
     
     var description: String {
-        return "\(n) \(p2) \(p1)"
-    }
-    
-    var p1Encoded: String? {
-        return p1?.xa_encode()
-    }
-    
-    var p2Encoded: String? {
-        return p2?.xa_encode()
+        return "\(number) \(word2) \(word1)"
     }
 }
