@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IconView" customModule="XaddressApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3m-xF-0wy">
+                    <rect key="frame" x="3" y="3" width="44" height="44"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="19" translatesAutoresizingMaskIntoConstraints="NO" id="l2H-cK-4Uh">
+                            <rect key="frame" x="8" y="8" width="28" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="28" id="S5B-xW-wBd"/>
+                                <constraint firstAttribute="height" constant="28" id="gQ4-U1-wzk"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="l2H-cK-4Uh" firstAttribute="leading" secondItem="a3m-xF-0wy" secondAttribute="leading" constant="8" id="1Eg-yV-Wew"/>
+                        <constraint firstAttribute="bottom" secondItem="l2H-cK-4Uh" secondAttribute="bottom" constant="8" id="J4e-cB-rkp"/>
+                        <constraint firstAttribute="trailing" secondItem="l2H-cK-4Uh" secondAttribute="trailing" constant="8" id="Krg-VT-qPi"/>
+                        <constraint firstItem="l2H-cK-4Uh" firstAttribute="top" secondItem="a3m-xF-0wy" secondAttribute="top" constant="8" id="dSS-L2-9uz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="a3m-xF-0wy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="3eL-hQ-Rbi"/>
+                <constraint firstAttribute="trailing" secondItem="a3m-xF-0wy" secondAttribute="trailing" constant="3" id="NKN-eo-zqq"/>
+                <constraint firstAttribute="bottom" secondItem="a3m-xF-0wy" secondAttribute="bottom" constant="3" id="Omx-FX-p3e"/>
+                <constraint firstItem="a3m-xF-0wy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="ucE-Yf-aZJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="borderView" destination="a3m-xF-0wy" id="A1m-ED-MML"/>
+                <outlet property="imageView" destination="l2H-cK-4Uh" id="McQ-fN-U7e"/>
+            </connections>
+            <point key="canvasLocation" x="232" y="349"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="19" width="512" height="512"/>
+    </resources>
+</document>

@@ -90,6 +90,8 @@ class DecodeChildViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.whiteColor()
+        
         let countryFetchRequest = NSFetchRequest()
         countryFetchRequest.entity = NSEntityDescription.entityForName("XACountry", inManagedObjectContext: moc)
         countryFetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -315,10 +317,15 @@ class DecodeChildViewController: UIViewController {
             view.endEditing(true)
             
             let xaddressString = addressTextField.text!
-            let xAddress = XAUtils.xaddressForText(xaddressString, country: selectedCountry, state: selectedState)
-            print("xAddress: ", xAddress)
-            mapViewController.showPlace(xAddress!)
+            let result = XAUtils.xaddressForText(xaddressString, country: selectedCountry, state: selectedState)
+            if let components = result.components, coordinate = result.location {
+                print("xAddress: ", result.location)
+                mapViewController.showDecodedAddress(components, atCoordinate: coordinate)
+            }
             
+            addressTextField.text = nil
+            
+            scrollView.setContentOffset(CGPointMake(screenWidth * 0, 0), animated: false)
         default:
             break
         }
@@ -326,6 +333,12 @@ class DecodeChildViewController: UIViewController {
 }
 
 extension DecodeChildViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if mapViewController.mapBottomLayoutConstraint.active == false {
+            mapViewController.resetView()
+        }
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == addressTextField {

@@ -35,9 +35,13 @@
 		32DAF69A1DA8ABA6003ED378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DAF6981DA8ABA6003ED378 /* LaunchScreen.storyboard */; };
 		32DAF6A51DA8ABA6003ED378 /* XaddressAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6A41DA8ABA6003ED378 /* XaddressAppTests.swift */; };
 		32DAF6B01DA8ABA6003ED378 /* XaddressAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */; };
+		32E143B21DD78A240032136A /* EncodeChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E143B11DD78A240032136A /* EncodeChildViewController.swift */; };
 		32EBB9A61DA9CAF80000FA61 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBB9A51DA9CAF80000FA61 /* Constant.swift */; };
 		32EE8A6C1DCE9D880011FE0E /* DecodedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE8A6B1DCE9D880011FE0E /* DecodedView.swift */; };
 		32EE8A6E1DCE9D940011FE0E /* DecodedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EE8A6D1DCE9D940011FE0E /* DecodedView.xib */; };
+		32EE8A711DCE9F160011FE0E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE8A701DCE9F160011FE0E /* Utils.swift */; };
+		32EE8A731DCED5FA0011FE0E /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE8A721DCED5FA0011FE0E /* IconView.swift */; };
+		32EE8A751DCED6040011FE0E /* IconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EE8A741DCED6040011FE0E /* IconView.xib */; };
 		365C8EA78EF7EE18A242B9ED /* Pods_XaddressApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */; };
 		EE3FFB31B74BF57C7F8F1387 /* Pods_XaddressAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -94,9 +98,13 @@
 		32DAF6AB1DA8ABA6003ED378 /* XaddressAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XaddressAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DAF6AF1DA8ABA6003ED378 /* XaddressAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XaddressAppUITests.swift; sourceTree = "<group>"; };
 		32DAF6B11DA8ABA6003ED378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32E143B11DD78A240032136A /* EncodeChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodeChildViewController.swift; sourceTree = "<group>"; };
 		32EBB9A51DA9CAF80000FA61 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		32EE8A6B1DCE9D880011FE0E /* DecodedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodedView.swift; sourceTree = "<group>"; };
 		32EE8A6D1DCE9D940011FE0E /* DecodedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecodedView.xib; sourceTree = "<group>"; };
+		32EE8A701DCE9F160011FE0E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		32EE8A721DCED5FA0011FE0E /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		32EE8A741DCED6040011FE0E /* IconView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconView.xib; sourceTree = "<group>"; };
 		4E87A4D80507FC3704F570BE /* Pods_XaddressAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7592F1DDDFE7ACB9578051EA /* Pods_XaddressApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XaddressApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4A9AADC60FE5AC40DEC7B9 /* Pods-XaddressAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppUITests/Pods-XaddressAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,12 +161,12 @@
 		324670341DB2C975004E0673 /* Managed */ = {
 			isa = PBXGroup;
 			children = (
+				32271D891DB6F6E900F80A45 /* XANoun.swift */,
+				32271D8A1DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift */,
 				32271D851DB6F6E900F80A45 /* XAAdjective.swift */,
 				32271D861DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift */,
 				32271D871DB6F6E900F80A45 /* XACountry.swift */,
 				32271D881DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift */,
-				32271D891DB6F6E900F80A45 /* XANoun.swift */,
-				32271D8A1DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift */,
 				32271D8B1DB6F6E900F80A45 /* XAState.swift */,
 				32271D8C1DB6F6E900F80A45 /* XAState+CoreDataProperties.swift */,
 			);
@@ -193,11 +201,13 @@
 				32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */,
 				32DAF6911DA8ABA6003ED378 /* ViewController.swift */,
 				3246709A1DB2D4C6004E0673 /* DecodeChildViewController.swift */,
+				32E143B11DD78A240032136A /* EncodeChildViewController.swift */,
 				32DAF6931DA8ABA6003ED378 /* Main.storyboard */,
 				32DAF6961DA8ABA6003ED378 /* Assets.xcassets */,
 				32271D951DB7015E00F80A45 /* Media.xcassets */,
 				32DAF6981DA8ABA6003ED378 /* LaunchScreen.storyboard */,
 				32DAF69B1DA8ABA6003ED378 /* Info.plist */,
+				32EE8A701DCE9F160011FE0E /* Utils.swift */,
 				32EE8A6F1DCE9E340011FE0E /* Views */,
 				32EBB9A51DA9CAF80000FA61 /* Constant.swift */,
 				325240251DA9B08300D12A11 /* FillDialogue.swift */,
@@ -231,6 +241,8 @@
 				325240241DA9B08300D12A11 /* EncodedView.xib */,
 				32EE8A6B1DCE9D880011FE0E /* DecodedView.swift */,
 				32EE8A6D1DCE9D940011FE0E /* DecodedView.xib */,
+				32EE8A721DCED5FA0011FE0E /* IconView.swift */,
+				32EE8A741DCED6040011FE0E /* IconView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,6 +388,7 @@
 				32271D961DB7015E00F80A45 /* Media.xcassets in Resources */,
 				329817A01DC51483009B0B49 /* XALoader.sqlite-wal in Resources */,
 				32EE8A6E1DCE9D940011FE0E /* DecodedView.xib in Resources */,
+				32EE8A751DCED6040011FE0E /* IconView.xib in Resources */,
 				32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */,
 				325240271DA9B08300D12A11 /* EncodedView.xib in Resources */,
 				3298179E1DC51483009B0B49 /* XALoader.sqlite in Resources */,
@@ -527,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32271D911DB6F6E900F80A45 /* XANoun.swift in Sources */,
+				32EE8A731DCED5FA0011FE0E /* IconView.swift in Sources */,
 				32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */,
 				324670951DB2D2C0004E0673 /* XALoader.xcdatamodel in Sources */,
 				32271D8D1DB6F6E900F80A45 /* XAAdjective.swift in Sources */,
@@ -541,10 +555,12 @@
 				3246709B1DB2D4C6004E0673 /* DecodeChildViewController.swift in Sources */,
 				32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */,
 				32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */,
+				32EE8A711DCE9F160011FE0E /* Utils.swift in Sources */,
 				32271D8F1DB6F6E900F80A45 /* XACountry.swift in Sources */,
 				32271D931DB6F6E900F80A45 /* XAState.swift in Sources */,
 				32271D8E1DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift in Sources */,
 				32271D901DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift in Sources */,
+				32E143B21DD78A240032136A /* EncodeChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

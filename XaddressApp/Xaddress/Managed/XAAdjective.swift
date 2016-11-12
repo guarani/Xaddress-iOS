@@ -12,6 +12,12 @@ import CoreData
 
 class XAAdjective: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
+    class func matchingCode(code: String, inManagedContext moc: NSManagedObjectContext) -> [XAAdjective]? {
+        let fetchRequest = NSFetchRequest(entityName: "XAAdjective")
+        fetchRequest.predicate = NSPredicate(format: "code BEGINSWITH %@", code)
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "popularity", ascending: false) ]
+        let adjectives = try! moc.executeFetchRequest(fetchRequest) as! [XAAdjective]
+        return adjectives
+    }
 
 }

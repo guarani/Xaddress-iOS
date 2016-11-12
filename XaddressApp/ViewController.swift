@@ -7,48 +7,22 @@
 //
 
 import UIKit
-
+import CoreData
 import Alamofire
 import GoogleMaps
 import CoreLocation
 import SwiftyJSON
-import SnapKit
 import GooglePlaces
 
-
-class Bounds: CustomStringConvertible {
-    
-    // e.g. -9.9300701@153.5518096*-29.1785876@137.9945748
-    init(bounds: String) {
-        self.bottomLeftCoordinate = CLLocationCoordinate2D()
-        self.topRightCoordinate = CLLocationCoordinate2D()
-        
-        let coordinates = bounds.characters.split("*")
-        let start = String(coordinates[1])
-        let end = String(coordinates[0])
-        
-        let startComponents = start.characters.split("@")
-        self.bottomLeftCoordinate?.latitude = CLLocationDegrees(String(startComponents[0]))!
-        self.bottomLeftCoordinate?.longitude = CLLocationDegrees(String(startComponents[1]))!
-        
-        let endComponents = end.characters.split("@")
-        self.topRightCoordinate?.latitude = CLLocationDegrees(String(endComponents[0]))!
-        self.topRightCoordinate?.longitude = CLLocationDegrees(String(endComponents[1]))!
-    }
-    
-    let bottomLeftCoordinate: CLLocationCoordinate2D?
-    let topRightCoordinate: CLLocationCoordinate2D?
-    
-    var description: String {
-        return bottomLeftCoordinate.debugDescription + " " + topRightCoordinate.debugDescription
-    }
-}
 
 class ViewController: UIViewController {
     
     var mapView: GMSMapView!
-    var xaddressTextField: UITextField!
-    var bottomLayoutConstraint: NSLayoutConstraint!
+    var decodedView: DecodedView!
+    
+    var mapBottomLayoutConstraint: NSLayoutConstraint!
+    var decodedBottomLayoutConstraint: NSLayoutConstraint!
+    var decodeVCBottomLayoutConstraint: NSLayoutConstraint!
     
     var locationManager: CLLocationManager?
     var userLocation: CLLocation?
@@ -57,10 +31,12 @@ class ViewController: UIViewController {
     var autocompleteResultsViewController: GMSAutocompleteResultsViewController!
     var searchController: UISearchController!
     
-//    var address: XAAddress?
-    
     let decodeViewController = DecodeChildViewController()
-//    var addressView: AddressView?
+    
+    var moc: NSManagedObjectContext {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return appDelegate.managedObjectContext
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,24 +73,29 @@ class ViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: mapView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[mapView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["mapView": mapView]))
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        decodedView = UINib(nibName: "DecodedView", bundle: nil).instantiateWithOwner(nil, options: nil).first as! DecodedView
+        view.addSubview(decodedView)
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[decodedView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["decodedView": decodedView]))
+        view.addConstraint(NSLayoutConstraint(item: decodedView, attribute: .Top, relatedBy: .Equal, toItem: mapView, attribute: .Bottom, multiplier: 1, constant: 0))
         
         decodeViewController.mapViewController = self
         addChildViewController(decodeViewController)
-        let decodeView = decodeViewController.view
-        decodeView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(decodeView)
-        view.addConstraint(NSLayoutConstraint(item: decodeView, attribute: .Top, relatedBy: .Equal, toItem: mapView, attribute: .Bottom, multiplier: 1, constant: 0))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[decodeView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["decodeView": decodeView]))
-        bottomLayoutConstraint = NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: decodeView, attribute: .Bottom, multiplier: 1, constant: 0)
-        view.addConstraint(bottomLayoutConstraint)
+        let decodeVCView = decodeViewController.view
+        decodeVCView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(decodeVCView)
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[decodeVCView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["decodeVCView": decodeVCView]))
         decodeViewController.didMoveToParentViewController(self)
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        print("MEMORY WARNING!")
+        // Setup variable constraints.
+        mapBottomLayoutConstraint = NSLayoutConstraint(item: decodeVCView, attribute: .Top, relatedBy: .Equal, toItem: mapView, attribute: .Bottom, multiplier: 1, constant: 0)
+        view.addConstraint(mapBottomLayoutConstraint)
+        decodedBottomLayoutConstraint = NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: decodedView, attribute: .Bottom, multiplier: 1, constant: decodeViewController.view.frame.height)
+        decodeVCBottomLayoutConstraint = NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: decodeVCView, attribute: .Bottom, multiplier: 1, constant: 0)
+        view.addConstraint(decodeVCBottomLayoutConstraint)
+
+        // Get keyboard notification events so we can move the decodeVC view up and down.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     // #MARK: - Keyboard Handlers
@@ -124,7 +105,6 @@ class ViewController: UIViewController {
         let beginFrame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]!.CGRectValue()
         let endFrame = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
         
-        print(beginFrame, endFrame)
         guard CGRectEqualToRect(beginFrame, endFrame) == false else {
             return
         }
@@ -132,37 +112,19 @@ class ViewController: UIViewController {
         if let keyboardHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height,
             duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
             
-            bottomLayoutConstraint.constant = keyboardHeight
-//            decodeViewController.open()
-            UIView.animateWithDuration(duration, animations: {
-                self.view.layoutIfNeeded()
-            })
+            decodeVCBottomLayoutConstraint.constant = keyboardHeight
+            UIView.animateWithDuration(duration, animations: { self.view.layoutIfNeeded() })
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
-            closeXaddressTextField(duration)
+            decodeVCBottomLayoutConstraint.constant = 0
+            UIView.animateWithDuration(duration, animations: { self.decodeViewController.view.layoutIfNeeded() })
         }
     }
     
     // #MARK: - Decode View
-    
-    func showCountryPicker() {
-        
-    }
-    
-    func closeXaddressTextField(duration: Double = 0) {
-        bottomLayoutConstraint.constant = 0
-//        decodeViewController.close()
-        UIView.animateWithDuration(duration, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: { _ in
-            if self.decodeViewController.decodingState == .Result {
-                self.hideDecoder()
-            }
-        })
-    }
     
     func showMarkerAtCoordinate(coordinate: CLLocationCoordinate2D) {
         currentMarker?.map = nil
@@ -179,7 +141,16 @@ class ViewController: UIViewController {
         
         showMarkerAtCoordinate(coordinate)
         
-        fetchStateAndCountry({ country, state in
+        fetchStateAndCountry(coordinate, onSuccess: { country, state in
+            print(country, state)
+            
+            guard let country = country, state = state else { return }
+            
+            guard let components = XAUtils.encodeCoordinate(coordinate, inCountry: country, inState: state, moc: self.moc) else {
+                return
+            }
+            
+            self.showDecodedAddress(components, atCoordinate: coordinate)
             
 //            self.boundsForPlace(country, state: state, onSuccess: { bounds in
 //                
@@ -198,46 +169,48 @@ class ViewController: UIViewController {
         })
     }
 
-    func fetchStateAndCountry(onSuccess: ((country: XACountry?, state: XAState?) -> Void)) {
-        
-        guard let lat = self.userLocation?.coordinate.latitude, lon = self.userLocation?.coordinate.longitude else {
-            onSuccess(country: nil, state: nil)
-            return
-        }
+    func fetchStateAndCountry(coordinate: CLLocationCoordinate2D, onSuccess: ((country: XACountry?, state: XAState?) -> Void)) {
         
         Alamofire.request(.GET, "https://maps.googleapis.com/maps/api/geocode/json", parameters: [
-            "latlng"    : "\(lat),\(lon)",
+            "latlng"    : "\(coordinate.latitude),\(coordinate.longitude)",
             "key"       : "AIzaSyDSOWvIMZmgJDk9lh1CinNt1i6iQV8b4Jg",
         ]).responseJSON { response in
             
             if let data = response.data {
                 let json = JSON(data: data)
-                var country: XACountry?
-                var state: XAState?
-                if let addressComponents = json["results"][0]["address_components"].array {
-                    let stateInfo = addressComponents.filter { component in
-                        let isState = component["types"].array?.filter { type in
-                            type == "administrative_area_level_1"
-                        }.count > 0
-                        
-                        return isState
-                    }.first
-                    
-                    let countryInfo = addressComponents.filter { component in
-                        let isCountry = component["types"].array?.filter { type in
-                            type == "country"
-                        }.count > 0
-                        
-                        return isCountry
-                    }.first
-                    
-//                    state = State(shortName: stateInfo?["short_name"].string, longName: stateInfo?["long_name"].string)
-//                    country = Country(shortName: countryInfo?["short_name"].string, longName: countryInfo?["long_name"].string)
-                }
+                guard let country = XACountry.matchingGooglePlace(json, inManagedContext: self.moc) else { return }
+                guard let state = XAState.matchingGooglePlace(json, inManagedContext: self.moc) else { return }
                 
+                print("Country:", country.name, country.lat, country.lon)
+                print("State:", state.name1, state.lat, state.lon)
+        
                 onSuccess(country: country, state: state)
             }
         }
+    }
+    
+    func resetView() {
+        view.removeConstraint(decodedBottomLayoutConstraint)
+        mapBottomLayoutConstraint.active = true
+        self.decodedView.alpha = 0
+    }
+    
+    func showDecodedAddress(address: XAAddressComponents, atCoordinate coordinate: CLLocationCoordinate2D) {
+        mapBottomLayoutConstraint.active = false
+        decodedBottomLayoutConstraint.constant = decodeViewController.view.frame.height
+        view.addConstraint(decodedBottomLayoutConstraint)
+        self.decodedView.alpha = 1
+        
+        decodedView.topLabel.text = address.description
+        var location = ""
+        if let country = address.country?.name {
+            location += country
+        }
+        if let state = address.state?.name1 {
+            location += " \(state)"
+        }
+        decodedView.middleLabel.text = location
+        showPlace(coordinate)
     }
     
     func showPlace(locationCoordinate: CLLocationCoordinate2D) {
@@ -245,31 +218,9 @@ class ViewController: UIViewController {
         mapView.animateWithCameraUpdate(cameraUpdate)
         showMarkerAtCoordinate(locationCoordinate)
     }
-    
-    func hideDecoder() {
-        
-        decodeViewController.view.setNeedsLayout()
-        decodeViewController.view.layoutIfNeeded()
-        
-        self.bottomLayoutConstraint.constant = -decodeViewController.view.frame.height
-        
-        UIView.animateWithDuration(0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-
 }
 
 extension ViewController: GMSMapViewDelegate {
-//    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-//        
-//        // ALlow animations in the info window.
-//        marker.tracksInfoWindowChanges = true
-//        
-//        addressView = UINib(nibName: "AddressView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? AddressView
-//        self.addressView?.startLoading()
-//        return addressView
-//    }
     
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
         encodePlaceAtCoordinate(coordinate)
@@ -306,21 +257,14 @@ extension ViewController: CLLocationManagerDelegate {
 }
 
 
-// Handle the user's selection.
 extension ViewController: GMSAutocompleteResultsViewControllerDelegate {
+    
     func resultsController(resultsController: GMSAutocompleteResultsViewController, didAutocompleteWithPlace place: GMSPlace) {
         searchController?.active = false
-        // Do something with the selected place.
-        print("Place name: ", place.name)
-        print("Place address: ", place.formattedAddress)
-        print("Place attributions: ", place.attributions)
-        
         encodePlaceAtCoordinate(place.coordinate)
-        
     }
     
     func resultsController(resultsController: GMSAutocompleteResultsViewController, didFailAutocompleteWithError error: NSError) {
-        // TODO: handle the error.
         print("Error: ", error.description)
     }
     

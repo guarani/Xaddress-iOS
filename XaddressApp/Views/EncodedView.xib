@@ -18,8 +18,9 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWY-mr-doO" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
                             <rect key="frame" x="40" y="0.0" width="222" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -34,10 +35,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ybl-ji-4UC">
                     <rect key="frame" x="3" y="3" width="50" height="50"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-ni-9KP">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-ni-9KP">
                             <rect key="frame" x="6" y="6" width="38" height="38"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Eb5-ni-9KP" firstAttribute="leading" secondItem="Ybl-ji-4UC" secondAttribute="leading" constant="6" id="0dQ-eP-VV9"/>
                         <constraint firstAttribute="bottom" secondItem="Eb5-ni-9KP" secondAttribute="bottom" constant="6" id="FOU-ia-UlC"/>
@@ -76,7 +79,4 @@
             <point key="canvasLocation" x="161.5" y="613"/>
         </view>
     </objects>
-    <resources>
-        <image name="00" width="512" height="512"/>
-    </resources>
 </document>

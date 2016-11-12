@@ -8,13 +8,73 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
-typealias XACombinationTableElement = (idx: Int, (lat: Int, lon: Int))
+typealias XACombinationTableElement = (idx: String, (lat: String, lon: String))
 typealias XACombinationTable = [XACombinationTableElement]
 
 
 class XAUtils {
-    class func xaddressForText(text: String, country: XACountry, state: XAState?) -> CLLocationCoordinate2D? {
+    
+    // Generate(encode) the xAddress of a coordinate in a country and/or state.
+    // See: https://github.com/roberdam/Xaddress/blob/master/pseudocode/encode
+    class func encodeCoordinate(coordinate: CLLocationCoordinate2D, inCountry country: XACountry, inState state: XAState, moc: NSManagedObjectContext) -> XAAddressComponents? {
+        
+        let components = XAAddressComponents()
+        components.country = country
+        components.state = state
+        
+        var combinations: Int!
+        var boundsString: String!
+        var word2Code: String!
+        
+        if components.isCountry {
+            // Use country
+            combinations = country.totalCombinations!.integerValue
+            boundsString = country.bounds!
+        } else {
+            // Use state
+            combinations = state.totalCombinations!.integerValue
+            boundsString = state.bounds!
+        }
+        
+        let combinationTable = combinationTableForBoundsString(boundsString)
+        
+        let firstParts = coordinate.integerParts()
+        
+        if combinations > 0 {
+            word2Code = combinationTable.filter {
+                $0.1.lat == firstParts.lat && $0.1.lon == firstParts.lon
+            }.first?.idx
+        }
+        
+        guard let word1Code = coordinate.last2DecimalDigitParts() else {
+            print("Error: Can't extract last two significant digits...")
+            return nil
+        }
+        
+        guard let first2DecimalParts = coordinate.first2DecimalDigitParts() else {
+            print("Error: Can't get first2Decword1CodeimalDigitParts...")
+            return nil
+        }
+        components.number = first2DecimalParts
+    
+        components.nouns = XANoun.matchingCode(word1Code, inManagedContext: moc)
+        components.word2 = components.nouns?.first?.word
+        
+        if combinations > 0 {
+            components.adjectives = XAAdjective.matchingCode(word2Code, inManagedContext: moc)
+            components.word1 = components.adjectives?.first?.word
+        }
+        
+        print(components.description)
+
+        return components
+    }
+    
+    // Calculate(decode) the coordinates of an Xaddress in a country and/or state.
+    // See: https://github.com/roberdam/Xaddress/blob/master/pseudocode/encode
+    class func xaddressForText(text: String, country: XACountry, state: XAState?) -> (location: CLLocationCoordinate2D?, components: XAAddressComponents?) {
         
         var lat0: String!
         var lat1: String!
@@ -33,8 +93,11 @@ class XAUtils {
         
         guard let components = xa_addressComponentsText(text, combinations: combinations), word1 = components.word1 else {
             print("Error: Failed to extract components from xaddress")
-            return nil
+            return (nil, nil)
         }
+        
+        components.country = country
+        components.state = state
         
         let word1Code = XAUtils.codeFromWord(word1)
         
@@ -72,7 +135,8 @@ class XAUtils {
         let comps = location.characters.split(",")
         let lat = String(comps[0])
         let lon = String(comps[1])
-        return CLLocationCoordinate2D(latitude: CLLocationDegrees(lat)!, longitude: CLLocationDegrees(lon)!)
+        let loc = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat)!, longitude: CLLocationDegrees(lon)!)
+        return (loc, components)
     }
 
     
@@ -115,7 +179,7 @@ class XAUtils {
                 return nil
             }
             
-            if let number = Int(groups[0]) {
+            if let number = groups.first {
                 addressComponents.number = number
                 if groups.count == 3 {
                     addressComponents.word1 = groups[2]
@@ -123,17 +187,17 @@ class XAUtils {
                 } else {
                     addressComponents.word1 = groups[1]
                 }
-            } else  {
+            } else {
                 if groups.count == 3 {
                     addressComponents.word1 = groups[0]
                     addressComponents.word2 = groups[1]
-                    addressComponents.number = Int(groups[2])!
+                    addressComponents.number = groups[2]
                 } else {
                     addressComponents.word1 = groups[0]
-                    addressComponents.number = Int(groups[1])!
+                    addressComponents.number = groups[1]
                 }
             }
-            
+        
             print(addressComponents)
             return addressComponents
         } catch {
@@ -211,7 +275,7 @@ class XAUtils {
         var table = XACombinationTable()
         for lat in initialLat ... finalLat {
             for lon in initialLon ... finalLon {
-                table.append((count, (lat, lon)))
+                table.append((String(count), (String(lat), String(lon))))
                 count += 1
             }
         }
@@ -220,5 +284,49 @@ class XAUtils {
         print(table)
         
         return table
+    }
+}
+
+
+extension CLLocationCoordinate2D {
+    
+    // e.g. Extract "(-6, 129)" from "-6.7184,129.5080".
+    func integerParts() -> (lat: String, lon: String) {
+        return (String(Int(latitude)), String(Int(longitude)))
+    }
+    
+    // e.g. Extract "8480" from "-6.7184,129.5080".
+    func last2DecimalDigitParts() -> String? {
+        guard let latPart = latitude.last2DecimalDigits() else { return nil }
+        guard let lonPart = longitude.last2DecimalDigits() else { return nil }
+        return latPart + lonPart
+    }
+    
+    // e.g. Extract "7150" from "-6.7184,129.5080".
+    func first2DecimalDigitParts() -> String? {
+        guard let latPart = latitude.first2DecimalDigits() else { return nil }
+        guard let lonPart = longitude.first2DecimalDigits() else { return nil }
+        return latPart + lonPart
+    }
+}
+
+extension CLLocationDegrees {
+    
+    /// e.g. Extract "80" from "129.50809999".
+    func last2DecimalDigits() -> String? {
+        let str = String(self)
+        guard let startIndex = str.rangeOfString(".")?.startIndex.advancedBy(1).advancedBy(2) else { return nil }
+        let endIndex = startIndex.advancedBy(2)
+        let digits = str.substringWithRange(startIndex..<endIndex)
+        return digits
+    }
+    
+    /// e.g. Extract "50" from "129.50809999".
+    func first2DecimalDigits() -> String? {
+        let str = String(self)
+        guard let startIndex = str.rangeOfString(".")?.startIndex.advancedBy(1) else { return nil }
+        let endIndex = startIndex.advancedBy(2)
+        let digits = str.substringWithRange(startIndex..<endIndex)
+        return digits
     }
 }
