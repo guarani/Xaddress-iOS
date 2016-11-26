@@ -15,6 +15,8 @@ class DecodedView: UIView {
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    var iconView: IconView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         topLabel.font = UIFont.boldSystemFontOfSize(17)
@@ -29,7 +31,7 @@ class DecodedView: UIView {
         layer.shadowOffset = CGSizeZero
         layer.shadowColor = Constant.Color.Shadow.CGColor
         
-        let iconView = UINib(nibName: "IconView", bundle: nil).instantiateWithOwner(nil, options: nil).first as! IconView
+        iconView = UINib(nibName: "IconView", bundle: nil).instantiateWithOwner(nil, options: nil).first as! IconView
         addSubview(iconView)
         addConstraint(NSLayoutConstraint(item: iconView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: iconView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: 0))

@@ -10,11 +10,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XaddressApp/Xaddress/XAUtils.swift"
-            timestampString = "500671446.139292"
+            timestampString = "500678752.938091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "xa_addressComponentsText(_:combinations:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XaddressApp/Xaddress/XAUtils.swift"
+            timestampString = "500685950.065866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "encodeCoordinate(_:inCountry:inState:moc:)"
             landmarkType = "5">
          </BreakpointContent>

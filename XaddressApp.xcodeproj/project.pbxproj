@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2040830AC27EC6A6FA4B6D1E /* Pods_XaddressAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E99A091DFB14B040E06BE4 /* Pods_XaddressAppTests.framework */; };
+		320ECFC21DE9D3D700649B08 /* XAImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320ECFC01DE9D3D700649B08 /* XAImage.swift */; };
+		320ECFC31DE9D3D700649B08 /* XAImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320ECFC11DE9D3D700649B08 /* XAImage+CoreDataProperties.swift */; };
+		320ECFC51DE9D4A500649B08 /* XALoader.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 320ECFC41DE9D4A500649B08 /* XALoader.xcdatamodel */; };
+		320ECFC91DE9D78300649B08 /* XALoader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 320ECFC61DE9D78300649B08 /* XALoader.sqlite */; };
+		320ECFCA1DE9D78300649B08 /* XALoader.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 320ECFC71DE9D78300649B08 /* XALoader.sqlite-shm */; };
+		320ECFCB1DE9D78300649B08 /* XALoader.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 320ECFC81DE9D78300649B08 /* XALoader.sqlite-wal */; };
 		32271D8D1DB6F6E900F80A45 /* XAAdjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D851DB6F6E900F80A45 /* XAAdjective.swift */; };
 		32271D8E1DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D861DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift */; };
 		32271D8F1DB6F6E900F80A45 /* XACountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32271D871DB6F6E900F80A45 /* XACountry.swift */; };
@@ -20,14 +26,10 @@
 		32466E981DB28A09004E0673 /* XAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E971DB28A09004E0673 /* XAUtils.swift */; };
 		32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466E9D1DB28AC2004E0673 /* XAAddress.swift */; };
 		32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32466EA51DB29DA2004E0673 /* XAResources.swift */; };
-		324670951DB2D2C0004E0673 /* XALoader.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 324670911DB2D2C0004E0673 /* XALoader.xcdatamodel */; };
 		3246709B1DB2D4C6004E0673 /* DecodeChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246709A1DB2D4C6004E0673 /* DecodeChildViewController.swift */; };
 		325240261DA9B08300D12A11 /* EncodedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240231DA9B08200D12A11 /* EncodedView.swift */; };
 		325240271DA9B08300D12A11 /* EncodedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325240241DA9B08300D12A11 /* EncodedView.xib */; };
 		325240281DA9B08300D12A11 /* FillDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325240251DA9B08300D12A11 /* FillDialogue.swift */; };
-		3298179E1DC51483009B0B49 /* XALoader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3298179B1DC51483009B0B49 /* XALoader.sqlite */; };
-		3298179F1DC51483009B0B49 /* XALoader.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 3298179C1DC51483009B0B49 /* XALoader.sqlite-shm */; };
-		329817A01DC51483009B0B49 /* XALoader.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 3298179D1DC51483009B0B49 /* XALoader.sqlite-wal */; };
 		32DAF6901DA8ABA6003ED378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */; };
 		32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DAF6911DA8ABA6003ED378 /* ViewController.swift */; };
 		32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DAF6931DA8ABA6003ED378 /* Main.storyboard */; };
@@ -65,6 +67,12 @@
 
 /* Begin PBXFileReference section */
 		007A15B249DA30F50557D77B /* Pods-XaddressAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XaddressAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XaddressAppTests/Pods-XaddressAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		320ECFC01DE9D3D700649B08 /* XAImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAImage.swift; sourceTree = "<group>"; };
+		320ECFC11DE9D3D700649B08 /* XAImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XAImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		320ECFC41DE9D4A500649B08 /* XALoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XALoader.xcdatamodel; sourceTree = "<group>"; };
+		320ECFC61DE9D78300649B08 /* XALoader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XALoader.sqlite; sourceTree = "<group>"; };
+		320ECFC71DE9D78300649B08 /* XALoader.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XALoader.sqlite-shm"; sourceTree = "<group>"; };
+		320ECFC81DE9D78300649B08 /* XALoader.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XALoader.sqlite-wal"; sourceTree = "<group>"; };
 		32271D851DB6F6E900F80A45 /* XAAdjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAAdjective.swift; sourceTree = "<group>"; };
 		32271D861DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XAAdjective+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		32271D871DB6F6E900F80A45 /* XACountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XACountry.swift; sourceTree = "<group>"; };
@@ -77,14 +85,10 @@
 		32466E971DB28A09004E0673 /* XAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAUtils.swift; sourceTree = "<group>"; };
 		32466E9D1DB28AC2004E0673 /* XAAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAAddress.swift; sourceTree = "<group>"; };
 		32466EA51DB29DA2004E0673 /* XAResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAResources.swift; sourceTree = "<group>"; };
-		324670911DB2D2C0004E0673 /* XALoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XALoader.xcdatamodel; sourceTree = "<group>"; };
 		3246709A1DB2D4C6004E0673 /* DecodeChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeChildViewController.swift; sourceTree = "<group>"; };
 		325240231DA9B08200D12A11 /* EncodedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodedView.swift; sourceTree = "<group>"; };
 		325240241DA9B08300D12A11 /* EncodedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncodedView.xib; sourceTree = "<group>"; };
 		325240251DA9B08300D12A11 /* FillDialogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillDialogue.swift; sourceTree = "<group>"; };
-		3298179B1DC51483009B0B49 /* XALoader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XALoader.sqlite; sourceTree = "<group>"; };
-		3298179C1DC51483009B0B49 /* XALoader.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XALoader.sqlite-shm"; sourceTree = "<group>"; };
-		3298179D1DC51483009B0B49 /* XALoader.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XALoader.sqlite-wal"; sourceTree = "<group>"; };
 		32DAF68C1DA8ABA6003ED378 /* XaddressApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XaddressApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DAF68F1DA8ABA6003ED378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32DAF6911DA8ABA6003ED378 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,10 +150,6 @@
 		32466E961DB289F3004E0673 /* Xaddress */ = {
 			isa = PBXGroup;
 			children = (
-				324670911DB2D2C0004E0673 /* XALoader.xcdatamodel */,
-				3298179B1DC51483009B0B49 /* XALoader.sqlite */,
-				3298179C1DC51483009B0B49 /* XALoader.sqlite-shm */,
-				3298179D1DC51483009B0B49 /* XALoader.sqlite-wal */,
 				324670341DB2C975004E0673 /* Managed */,
 				32466E971DB28A09004E0673 /* XAUtils.swift */,
 				32466E9D1DB28AC2004E0673 /* XAAddress.swift */,
@@ -161,6 +161,12 @@
 		324670341DB2C975004E0673 /* Managed */ = {
 			isa = PBXGroup;
 			children = (
+				320ECFC61DE9D78300649B08 /* XALoader.sqlite */,
+				320ECFC71DE9D78300649B08 /* XALoader.sqlite-shm */,
+				320ECFC81DE9D78300649B08 /* XALoader.sqlite-wal */,
+				320ECFC41DE9D4A500649B08 /* XALoader.xcdatamodel */,
+				320ECFC01DE9D3D700649B08 /* XAImage.swift */,
+				320ECFC11DE9D3D700649B08 /* XAImage+CoreDataProperties.swift */,
 				32271D891DB6F6E900F80A45 /* XANoun.swift */,
 				32271D8A1DB6F6E900F80A45 /* XANoun+CoreDataProperties.swift */,
 				32271D851DB6F6E900F80A45 /* XAAdjective.swift */,
@@ -383,15 +389,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				32DAF69A1DA8ABA6003ED378 /* LaunchScreen.storyboard in Resources */,
-				3298179F1DC51483009B0B49 /* XALoader.sqlite-shm in Resources */,
 				32DAF6971DA8ABA6003ED378 /* Assets.xcassets in Resources */,
+				320ECFCA1DE9D78300649B08 /* XALoader.sqlite-shm in Resources */,
 				32271D961DB7015E00F80A45 /* Media.xcassets in Resources */,
-				329817A01DC51483009B0B49 /* XALoader.sqlite-wal in Resources */,
 				32EE8A6E1DCE9D940011FE0E /* DecodedView.xib in Resources */,
 				32EE8A751DCED6040011FE0E /* IconView.xib in Resources */,
 				32DAF6951DA8ABA6003ED378 /* Main.storyboard in Resources */,
 				325240271DA9B08300D12A11 /* EncodedView.xib in Resources */,
-				3298179E1DC51483009B0B49 /* XALoader.sqlite in Resources */,
+				320ECFCB1DE9D78300649B08 /* XALoader.sqlite-wal in Resources */,
+				320ECFC91DE9D78300649B08 /* XALoader.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +548,7 @@
 				32271D911DB6F6E900F80A45 /* XANoun.swift in Sources */,
 				32EE8A731DCED5FA0011FE0E /* IconView.swift in Sources */,
 				32DAF6921DA8ABA6003ED378 /* ViewController.swift in Sources */,
-				324670951DB2D2C0004E0673 /* XALoader.xcdatamodel in Sources */,
+				320ECFC31DE9D3D700649B08 /* XAImage+CoreDataProperties.swift in Sources */,
 				32271D8D1DB6F6E900F80A45 /* XAAdjective.swift in Sources */,
 				32466E981DB28A09004E0673 /* XAUtils.swift in Sources */,
 				325240261DA9B08300D12A11 /* EncodedView.swift in Sources */,
@@ -555,11 +561,13 @@
 				3246709B1DB2D4C6004E0673 /* DecodeChildViewController.swift in Sources */,
 				32466E9E1DB28AC2004E0673 /* XAAddress.swift in Sources */,
 				32466EA61DB29DA2004E0673 /* XAResources.swift in Sources */,
+				320ECFC51DE9D4A500649B08 /* XALoader.xcdatamodel in Sources */,
 				32EE8A711DCE9F160011FE0E /* Utils.swift in Sources */,
 				32271D8F1DB6F6E900F80A45 /* XACountry.swift in Sources */,
 				32271D931DB6F6E900F80A45 /* XAState.swift in Sources */,
 				32271D8E1DB6F6E900F80A45 /* XAAdjective+CoreDataProperties.swift in Sources */,
 				32271D901DB6F6E900F80A45 /* XACountry+CoreDataProperties.swift in Sources */,
+				320ECFC21DE9D3D700649B08 /* XAImage.swift in Sources */,
 				32E143B21DD78A240032136A /* EncodeChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,7 +717,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -722,7 +729,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.xaddress.XaddressApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

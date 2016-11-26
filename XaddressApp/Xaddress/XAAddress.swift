@@ -13,6 +13,7 @@ class XAAddressComponents: CustomStringConvertible {
     var number: String?
     var word1: String?
     var word2: String?
+    var imageCode: String?
     
     var country: XACountry?
     var state: XAState?
@@ -20,7 +21,7 @@ class XAAddressComponents: CustomStringConvertible {
     /// word2 can be identified by any one of these nouns.
     var nouns: [XANoun]?
     
-    /// word1 can be identified by any one of these nouns.
+    /// word1 can be identified by any one of these adjectives.
     var adjectives: [XAAdjective]?
     
     /// An Xaddress is in a geographical area: either a country or a state.

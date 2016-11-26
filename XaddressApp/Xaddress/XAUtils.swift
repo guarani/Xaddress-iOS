@@ -68,6 +68,8 @@ class XAUtils {
         }
         
         print(components.description)
+        
+        components.imageCode = imageCodeForXaddressComponents(components)
 
         return components
     }
@@ -198,6 +200,8 @@ class XAUtils {
                 }
             }
         
+            addressComponents.imageCode = imageCodeForXaddressComponents(addressComponents)
+            
             print(addressComponents)
             return addressComponents
         } catch {
@@ -284,6 +288,31 @@ class XAUtils {
         print(table)
         
         return table
+    }
+    
+    class func imageCodeForXaddressComponents(components: XAAddressComponents) -> String? {
+        var str = ""
+        if let word1 = components.word1 {
+            str += word1
+        }
+        if let word2 = components.word1 {
+            str += word2
+        }
+        if let number = components.number {
+            str += number
+        }
+        if components.isCountry {
+            str += components.country!.code!
+        } else {
+            var stateCode = components.state!.code!
+            if stateCode.containsString("-") {
+                stateCode.stringByReplacingOccurrencesOfString("-", withString: "")
+            }
+            str += stateCode
+        }
+        let hashed = codeFromWord(str)
+        let imageCode = hashed.substringToIndex(hashed.characters.startIndex.advancedBy(2))
+        return imageCode
     }
 }
 

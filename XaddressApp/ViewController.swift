@@ -135,7 +135,7 @@ class ViewController: UIViewController {
         mapView.selectedMarker = currentMarker
     }
     
-    func encodePlaceAtCoordinate(coordinate: CLLocationCoordinate2D) {
+    func encodePlaceAtCoordinate(coordinate: CLLocationCoordinate2D, panToLocation: Bool = false) {
         
         mapView.animateToLocation(coordinate)
         
@@ -150,22 +150,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            self.showDecodedAddress(components, atCoordinate: coordinate)
-            
-//            self.boundsForPlace(country, state: state, onSuccess: { bounds in
-//                
-//                let table = self.combinationTable(bounds!)
-//                print(table)
-//                
-//                self.xaddressForLocation(coordinate, combinationTable: table, onSuccess: { xaddress in
-//                    print(xaddress)
-//                    xaddress.country = country
-//                    xaddress.state = state
-//                    self.xaddress = xaddress
-//                    
-//                    self.xaddressView?.setupWithXaddress(xaddress)
-//                })
-//            })
+            self.showDecodedAddress(components, atCoordinate: coordinate, panToLocation: panToLocation)
         })
     }
 
@@ -195,22 +180,20 @@ class ViewController: UIViewController {
         self.decodedView.alpha = 0
     }
     
-    func showDecodedAddress(address: XAAddressComponents, atCoordinate coordinate: CLLocationCoordinate2D) {
+    func showDecodedAddress(address: XAAddressComponents, atCoordinate coordinate: CLLocationCoordinate2D, panToLocation: Bool = false) {
         mapBottomLayoutConstraint.active = false
         decodedBottomLayoutConstraint.constant = decodeViewController.view.frame.height
         view.addConstraint(decodedBottomLayoutConstraint)
         self.decodedView.alpha = 1
         
+        decodedView.iconView.imageView.image = UIImage(named: address.imageCode!)
         decodedView.topLabel.text = address.description
-        var location = ""
-        if let country = address.country?.name {
-            location += country
+        decodedView.middleLabel.text = address.title
+        decodedView.bottomLabel.text = address.subtitle
+        
+        if panToLocation {
+            showPlace(coordinate)
         }
-        if let state = address.state?.name1 {
-            location += " \(state)"
-        }
-        decodedView.middleLabel.text = location
-        showPlace(coordinate)
     }
     
     func showPlace(locationCoordinate: CLLocationCoordinate2D) {
@@ -222,10 +205,12 @@ class ViewController: UIViewController {
 
 extension ViewController: GMSMapViewDelegate {
     
+    // User tapped the map, calculate the Xaddress.
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
         encodePlaceAtCoordinate(coordinate)
     }
     
+    // User tapped marker, calculate the Xaddress.
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
         encodePlaceAtCoordinate(marker.position)
         return false
@@ -239,40 +224,48 @@ extension ViewController: CLLocationManagerDelegate {
 //        UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
     }
     
+    // Called when a location is found, may be called multiple times until a sufficently accurate location
+    // is found.
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        guard locations.first?.horizontalAccuracy <= 10 else {
-            print("Location accuracy (\(locations.first?.horizontalAccuracy) not good enough.)")
+        guard let location = locations.first else { return }
+        
+        // The location must be sufficiently accurate.
+        guard location.horizontalAccuracy <= 10 else {
+            print("Location at \(location.coordinate) with accuracy: \(location.horizontalAccuracy) is NOT good enough.)")
             return
         }
         
-        print("Location: \(locations.first?.coordinate), accuracy: \(locations.first?.horizontalAccuracy) - GOOD ENOUGH.)")
+        print("Location at \(location.coordinate) with accuracy: \(location.horizontalAccuracy) is GOOD ENOUGH.)")
         
-        locationManager?.stopUpdatingLocation()
+        manager.stopUpdatingLocation()
         locationManager = nil
         
-        userLocation = locations.first
-        mapView.animateToLocation(userLocation!.coordinate)
+        userLocation = location
+        mapView.animateToLocation(location.coordinate)
     }
 }
 
 
 extension ViewController: GMSAutocompleteResultsViewControllerDelegate {
     
+    // When the user selects a place, dismiss the search results and calculate the Xaddress.
     func resultsController(resultsController: GMSAutocompleteResultsViewController, didAutocompleteWithPlace place: GMSPlace) {
         searchController?.active = false
-        encodePlaceAtCoordinate(place.coordinate)
+        encodePlaceAtCoordinate(place.coordinate, panToLocation: true)
     }
     
+    //
     func resultsController(resultsController: GMSAutocompleteResultsViewController, didFailAutocompleteWithError error: NSError) {
         print("Error: ", error.description)
     }
     
-    // Turn the network activity indicator on and off again.
+    // Turn the network activity indicator ON when a request starts.
     func didRequestAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
+    // Turn the network activity indicator OFF when a request ends.
     func didUpdateAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }

@@ -66,24 +66,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite")
         
-        if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
-            let sourceSqliteURLs = [
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite")
+        if NSFileManager.defaultManager().fileExistsAtPath(url.path!) == false {
+    
+            [
                 NSBundle.mainBundle().URLForResource("XALoader", withExtension: "sqlite")!,
                 NSBundle.mainBundle().URLForResource("XALoader", withExtension: "sqlite-wal")!,
                 NSBundle.mainBundle().URLForResource("XALoader", withExtension: "sqlite-shm")!
-            ]
-            
-            let destSqliteURLs = [
-                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite"),
-                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite-wal"),
-                self.applicationDocumentsDirectory.URLByAppendingPathComponent("XALoader.sqlite-shm")
-            ]
-            
-            var error:NSError? = nil
-            for i in 0 ..< sourceSqliteURLs.count {
-                try! NSFileManager.defaultManager().copyItemAtURL(sourceSqliteURLs[i], toURL: destSqliteURLs[i])
+            ].forEach {
+                try! NSFileManager.defaultManager().copyItemAtURL($0, toURL: self.applicationDocumentsDirectory.URLByAppendingPathComponent($0.lastPathComponent!))
             }
         }
         
